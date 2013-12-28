@@ -1,0 +1,4 @@
+E:\Projects\BrandBook20131226\BrandBookModel\bin\Release\BrandBookModel.dll
+E:\Projects\BrandBook20131226\BrandBookModel\bin\Release\BrandBookModel.pdb
+E:\Projects\BrandBook20131226\BrandBookModel\obj\Release\BrandBookModel.dll
+E:\Projects\BrandBook20131226\BrandBookModel\obj\Release\BrandBookModel.pdb

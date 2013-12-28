@@ -1,0 +1,11 @@
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookBiz.dll
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookBiz.pdb
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookModel.dll
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookRepository.dll
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookDBContext.dll
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookModel.pdb
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookRepository.pdb
+E:\Projects\BrandBook20131226\BrandBookBiz\bin\Release\BrandBookDBContext.pdb
+E:\Projects\BrandBook20131226\BrandBookBiz\obj\Release\BrandBookBiz.csprojResolveAssemblyReference.cache
+E:\Projects\BrandBook20131226\BrandBookBiz\obj\Release\BrandBookBiz.dll
+E:\Projects\BrandBook20131226\BrandBookBiz\obj\Release\BrandBookBiz.pdb

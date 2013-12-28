@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        @Scripts.Render("~/bundles/modernizr")
+
+        @Styles.Render("~/Content/themes/base/css")
+        
+        @Styles.Render("~/Content/css")
+
+
+        <script type="text/javascript" src='@Scripts.Url("~/bundles/jquery")'></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.1.0.min.js"></script>
+        <script type="text/javascript" src='@Scripts.Url("~/bundles/jqueryui")'></script>
+        @*<script type="text/javascript" src='@Scripts.Url("~/bundles/jqueryval")'></script>*@
+        <script type="text/javascript" src='@Scripts.Url("~/bundles/bootstrap")'></script>
+        @*<script type="text/javascript" src='@Scripts.Url("~/bundles/backbone")'></script>*@
+        
+        <script type="text/javascript" src='@Url.Content("~/Scripts/Authetication/Authentication.js")'></script> 
+        <script type="text/javascript" src='@Url.Content("~/Scripts/Registration/registration.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/user/index.js")'></script>
+        
+        <script type="text/javascript" src='@Url.Content("~/Scripts/jquery.validate.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/underscore.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/backbone.js")'></script>
+       
+        <script type="text/javascript">
+            var baseUrl = "@System.Configuration.ConfigurationManager.AppSettings["baseUrl"].ToString()";
+        </script> 
+    </head>
+    <body>
+        <div id="header" class="clearfix">
+            <h1 id="headerLogo">
+                Brand Book
+            </h1>
+            <div id="divLogOut" class="float-right"></div>
+        </div>
+        <div id="Content" class="clearfix">
+            @RenderBody()
+        </div>
+
+       
+    </body>
+     <script src='@Url.Content("~/Scripts/jquery.signalR-1.1.4.min.js")'></script>
+<script src='@Url.Content("~/signalr/hubs")'></script>
+</html>

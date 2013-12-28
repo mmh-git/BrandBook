@@ -1,0 +1,26 @@
+﻿@model BrandBookModel.UserModel
+@{
+    Layout = null;
+    }
+
+    <div class="profile-left float-left">
+        <img id="@Model.ProfilePicID" src="@Url.Content(@Model.ProfilePicUrl)" class="bbxWelcomeBoxImg Img" /><span>@Model.FirstName &nbsp;@Model.LastName</span>
+    </div>
+    <div class="statusList-middle float-left">
+        <div class="statusInput" id="statusInput">
+            <div><textarea  id="txtStatusInput" name="StatusContent" placeholder="Whats on your mind?"/>
+                <input type="hidden" id="StatusType" name="StatusType" value="T" />
+            </div>
+            <div class="PostStatus Shrink">
+                <input type="button" id="btnPostStatus"  value="Post"/>
+            </div>
+        </div>
+        
+       @Html.Action("GetStatusList","Status")
+    </div>
+<script type="text/javascript">
+    $("#txtStatusInput").on('focus', function () {
+        $("#statusInput").children(".PostStatus").addClass('Expand').removeClass('Shrink');
+    })
+</script>
+<script type="text/javascript" src='@Url.Content("~/Scripts/status/status.js")'></script>

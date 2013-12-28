@@ -1,0 +1,11 @@
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookFacadeBiz.dll
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookFacadeBiz.pdb
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookModel.dll
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookRepository.dll
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookDBContext.dll
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookModel.pdb
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookRepository.pdb
+E:\Projects\BrandBook\BrandBookFacadeBiz\bin\Debug\BrandBookDBContext.pdb
+E:\Projects\BrandBook\BrandBookFacadeBiz\obj\Debug\BrandBookBiz.csprojResolveAssemblyReference.cache
+E:\Projects\BrandBook\BrandBookFacadeBiz\obj\Debug\BrandBookFacadeBiz.dll
+E:\Projects\BrandBook\BrandBookFacadeBiz\obj\Debug\BrandBookFacadeBiz.pdb
