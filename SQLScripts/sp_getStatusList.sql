@@ -16,46 +16,54 @@ join
 UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
 join Images as img
-on ud.UserDetailsID=img.UserDetailsID
+on ud.proPicId=img.ImageID
 where su.StatusType='T'
 
 union all
-select su.StatusID as StatusID,
-su.StatusType as StatusType,
-img1.ImageUrl as StatusContent,
-su.createdDate as CreatedDate,
-su.UserDetailsID as StatusByUserID,
-ud.FirstName+' '+ud.LastName as FullName,
-ud.proPicId as PicID,
-img2.ImageUrl as ProPicUrl from StatusUpdate as su
+select 
+temp.StatusID as StatusID,
+temp.StatusType as StatusType,
+temp.ImageUrl as StatusContent,
+temp.createdDate as CreatedDate,
+temp.UserDetailsID as StatusByUserID,
+temp.FirstName+' '+temp.LastName as FullName,
+temp.proPicId as PicID,
+img2.ImageUrl as ProPicUrl
+ from 
+(select su.StatusID,su.StatusType,img1.ImageUrl,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
+from StatusUpdate as su
+join
+UserDetails as ud
+on su.UserDetailsID=ud.UserDetailsID
 join
 Images as img1
 on su.StatusContent=img1.ImageID
-join
-UserDetails as ud
-on su.UserDetailsID=ud.UserDetailsID
+where su.StatusType='I') as temp
 join Images as img2
-on ud.UserDetailsID=img2.UserDetailsID
-where su.StatusType='I'
+on temp.proPicId=img2.ImageID
 union all
 
-select su.StatusID as StatusID,
-su.StatusType as StatusType,
-vdo.VideoUrl as StatusContent,
-su.createdDate as CreatedDate,
-su.UserDetailsID as StatusByUserID,
-ud.FirstName+' '+ud.LastName as FullName,
-ud.proPicId as PicId,
-img2.ImageUrl as ProPicUrl from StatusUpdate as su
-join
-Videos as vdo
-on su.StatusContent=vdo.VideoUrl
+select 
+temp.StatusID as StatusID,
+temp.StatusType as StatusType,
+temp.VideoUrl as StatusContent,
+temp.createdDate as CreatedDate,
+temp.UserDetailsID as StatusByUserID,
+temp.FirstName+' '+temp.LastName as FullName,
+temp.proPicId as PicID,
+img2.ImageUrl as ProPicUrl
+ from 
+(select su.StatusID,su.StatusType,vid1.VideoUrl,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
+from StatusUpdate as su
 join
 UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
+join
+Videos as vid1
+on su.StatusContent=vid1.VideoID
+where su.StatusType='V') as temp
 join Images as img2
-on ud.UserDetailsID=img2.UserDetailsID
-where su.StatusType='V'
+on temp.proPicId=img2.ImageID
 
 /*************All Comments*****************/
 

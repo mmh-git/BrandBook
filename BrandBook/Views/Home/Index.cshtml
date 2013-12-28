@@ -283,22 +283,20 @@
             <div class="signup-loading-overlay hide-loader ">
             </div>
             <div class="signup-loader hide-loader">
-                    <img src="~/Content/themes/base/images/loading.gif" />
-                </div>
+                    <img src="~/Content/themes/base/images/loader-circle-ball.gif" /> Processing....
+            </div>
             <div class="signup-message-wrapper">
                 <h1 class="message-header"></h1>
                 <div class="message-body">
                     <label></label>
-                    <input type="button" class="btn" onclick="proceed()" value="Continue" />
-                    <div class="ProceedImageWrapper" onclick="proceed()">
-                        <div class="ProceedSuccess show">
-                            <span>Continue</span><img src="~/Content/themes/base/images/next.png" />
+                        <div class="ProceedSuccess">
+                            <input type="button" class="btn proceed" onclick="proceed()" value="Continue" /><img src="~/Content/themes/base/images/next.png" />
                         </div>
-                        <div class="ProceedFail hide">
-
+                        <div class="ProceedFail">
+                            <img src="~/Content/themes/base/images/previous.png" />
+                            <input type="button" class="btn proceed" onclick="proceed()" value="Back" />
                         </div>
-                    </div>
-                </div>
+                 </div>
             </div>
         </div>
     </form>
@@ -309,13 +307,13 @@
             <legend>Log in Form</legend>
             <ul class="list-unstyled">
                 <li>
-                    @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
-                    @Html.ValidationMessageFor(m => m.UserName)
+                    @Html.TextBox("UserName",null,new {@class = "form-control", placeholder = "User Name" })
+                   
                 </li>
                 <li>
                    
-                    @Html.Password("Password", null, new { @class = "form-control", placeholder = "Password" })
-                    @Html.ValidationMessageFor(m => m.Password)
+                    @Html.Password("Password", null, new {@class = "form-control", placeholder = "Password" })
+                    
                 </li>
                 <li>
                     @Html.CheckBox("RememberMe")
@@ -323,6 +321,9 @@
                 </li>
             </ul>
             <input type="button" class="btn btn-info" value="Log in" id="btnLogin" />
+            <div class="loginErrorMsg hide">
+                * Username or password is incorrect.
+            </div>
         </fieldset>
     </div>
 </form>

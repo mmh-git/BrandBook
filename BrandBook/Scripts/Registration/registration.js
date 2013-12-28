@@ -23,12 +23,16 @@
                 data: serialiedData,
                 success: function (data) {
                     if (data == 'Success') {
-                        loadUser();
+                        showSuccessSignupMessage();
+                    }
+                    else
+                    {
+                        showFailedSignupMessage();
                     }
                 },
                 error: function () {
 
-                    alert("error happen");
+                    showFailedSignupMessage();
                 },
                 complete: function ()
                 {
@@ -43,14 +47,42 @@
 
 function showSuccessSignupMessage()
 {
-
     $('.message-header').text('Congratulations!');
     $('.message-body>label').text('You have been signedup successfully. Enjoy Brand book');
-    $('.signup-message-wrapper').slideDown({ duration: 3000 });
+    if ($('.ProceedSuccess').hasClass('.hide')) {
+        $('.ProceedSuccess').remove('hide');
+    }
+    if (!$('.ProceedFail').hasClass('hide')) {
+        $('.ProceedFail').addClass('hide');
+    }
+    $('.signup-message-wrapper').slideDown({ duration: 700 });
+    
     this.proceed = function ()
     {
+        loadUser();
         document.getElementById('frmSignUp').reset();
-        $('.signup-message-wrapper').slideUp({ duration: 3000 });
+        $('.signup-message-wrapper').slideUp({ duration: 700 });
+    }
+}
+
+function showFailedSignupMessage() {
+    $('.message-header').text('Sorry!');
+    $('.message-body>label').text('Unsuccessfull Operation. Please Try again');
+    if (!$('.ProceedSuccess').hasClass('.hide')) {
+        $('.ProceedSuccess').addClass('hide');
+    }
+    if ($('.ProceedFail').hasClass('.hide')) {
+        $('.ProceedFail').removeClass('hide');
+    }
+    $('.signup-message-wrapper').slideDown({ duration: 700 });
+    
+    this.proceed = function () {
+        $('.signup-message-wrapper').animate(
+{ width: 0 }, 700, function () {
+    $('.signup-message-wrapper').hide();
+    $('.signup-message-wrapper').css('width', '100%')
+
+})
     }
 }
 

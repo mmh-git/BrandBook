@@ -205,9 +205,13 @@
     <Content Include="Content\Images\UserImages\DefaultImageMale.jpg" />
     <Content Include="Content\jquery.pageslide.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\green_background.jpg" />
     <Content Include="Content\themes\base\images\like.jpg" />
+    <Content Include="Content\themes\base\images\loader-circle-ball.gif" />
+    <Content Include="Content\themes\base\images\loader-circle.gif" />
     <Content Include="Content\themes\base\images\loading.gif" />
     <Content Include="Content\themes\base\images\next.png" />
+    <Content Include="Content\themes\base\images\previous.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

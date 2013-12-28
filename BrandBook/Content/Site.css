@@ -1172,6 +1172,10 @@ input[type="checkbox"].input-validation-error
     padding: 0;
 }
 
+.loginErrorMsg 
+{
+    color:#e80c4d;
+}
 /*******************Logout Message Modal*******************/
     .logOutMessageModal
     {
@@ -1323,18 +1327,31 @@ position:absolute;
 top:0;
 left:0;
 background-color:#fff;
-opacity:0.5;
+opacity:0.61;
 width:100%;
 height:100%;
 border-radius:0 10px 10px;
 }
 .signup-loader {
 border: 1px solid #c8c8c8;
-    border-radius: 4px;
-    margin: -217px 0 0 153px;
+    border-radius: 10px;
+    font-family: calibri;
+    font-size: 9pt;
+    height: 44px;
+    margin: -224px 0 0 113px;
     opacity: 1;
-    padding: 4px;
+    padding: 14px 0 0 16px;
     position: absolute;
+    width: 124px;
+    box-shadow: 5px 6px 5px #888888;
+    background: #E9E9E9; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #E9E9E9 0%, #FFFFFF  100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#E9E9E9), color-stop(100%,#FFFFFF )); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, #E9E9E9 0%,#FFFFFF  100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, #E9E9E9 0%,#FFFFFF  100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, #E9E9E9 0%,#FFFFFF  100%); /* IE10+ */
+background: linear-gradient(135deg, #E9E9E9 0%,#FFFFFF  100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E9E9E9', endColorstr='#FFFFFF ',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .show-loader 
 {
@@ -1348,17 +1365,61 @@ border: 1px solid #c8c8c8;
 
 /****************************Signup Message******************************/
 
+.message-header {
+    border-bottom: 1px solid #D8D8D8;
+    color: rgba(255, 0, 0, 0.5);
+    font-family: calibri;
+    font-size: 24pt;
+    font-weight: bold;
+    height: 43px;
+    margin: 6px 0 0 6px;
+    padding: 0 0 5px 5px;
+    width: 431px;
+
+}
+
+.message-body > label {
+   color: rgba(65, 151, 175, 0.5);
+    font-size: 18pt;
+    height: 99px;
+    margin: 70px 0 0 35px;
+    width: 400px;
+}
 .signup-message-wrapper {
     display:none;
     width:100%;
     height:100%;
     position:absolute;
     border-radius:0 10px 10px;
-    bottom:0px;
+    bottom:0;
     left:0;
-    top:0;
     background-color:#fff;
     opacity:1;
+}
+
+.ProceedSuccess, .ProceedFail {
+    left: 4px;
+    margin-top: 94px;
+    position: absolute;
+    width: 220px;
+}
+.ProceedSuccess {
+    float:right;
+    margin-left:258px;
+}
+
+.btn.proceed 
+{
+    margin-top:0px;
+    height:57px;
+    background:url('themes/base/images/green_background.jpg');
+    background-repeat:repeat-x;
+    width:70px;
+    
+    height:49px;
+     color: #fff;
+    font-family: sans-serif;
+    font-size: 17pt;
 }
 
 /****************OVERRIDE***************/
@@ -1375,3 +1436,6 @@ input[type="radio"], input[type="checkbox"] {
     padding-left: 3px;
     vertical-align: inherit;
 }
+
+
+
