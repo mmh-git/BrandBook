@@ -296,9 +296,10 @@ footer
 
     .statusInput textarea
     {
-        height: 32px;
-        border: none;
-        resize: none;
+      border: medium none;
+    height: 27px;
+    resize: none;
+    padding:4px;
         /*overflow:visible;*/
     }
 
@@ -668,7 +669,7 @@ input, textarea
     font-size: 1.2em;
     margin: 5px 0 6px 0;
     padding: 5px;
-    /*width: 300px;*/
+    width: 300px;
 }
 
 textarea
@@ -1013,14 +1014,20 @@ tr.pager td
 }
 
 /*Birth Day Controller*/
-
-.birthday-wrapper
+#DateOfBirth {
+    background-color: #FFFFFF;
+    height: 37px;
+    margin-top: -35px;
+    width: 297px;
+    color: #FFFFFF;
+}
+.birthday-fields-wrapper
 {
     display: inline-block;
     vertical-align: middle;
-    border: 1px solid #CCCCCC;
+    /*border: 1px solid #CCCCCC;
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;*/
     height: 34px;
 }
 
@@ -1319,8 +1326,8 @@ font-family: sans-serif;
 /*****************signup loading image**********************/
 
 .signup-loader img {
-    height: 28px;
-    width: 30px;
+    height: 16px;
+    width: 16px;
 }
 .signup-loading-overlay {
 position:absolute;
@@ -1405,7 +1412,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E9E9E9', end
 }
 .ProceedSuccess {
     float:right;
-    margin-left:258px;
+    margin-left:220px;
 }
 
 .btn.proceed 
@@ -1414,7 +1421,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E9E9E9', end
     height:57px;
     background:url('themes/base/images/green_background.jpg');
     background-repeat:repeat-x;
-    width:70px;
+    width:114px;
     
     height:49px;
      color: #fff;

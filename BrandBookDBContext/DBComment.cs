@@ -35,7 +35,7 @@ namespace BrandBookDBContext
 
         #region DBComment public method
 
-        public CommentModel  SaveComment(CommentModel commentModel)
+        public DataTable  SaveComment(CommentModel commentModel)
         {
             _spName = "Comments_SaveComment";
             SqlParameter sqlparam = new SqlParameter("@CommentID", commentModel.CommentID);
@@ -49,9 +49,9 @@ namespace BrandBookDBContext
                 new SqlParameter("@CommentContent",commentModel.CommentContent),
                 new SqlParameter("@CreatedDate",commentModel.CreatedDate)
             };
-            int result = ExecuteNoResult(_spName, _spParameters);
+            DataTable result = ExecuteDataTable(_spName, _spParameters);
             commentModel.CommentID = Convert.ToInt32(sqlparam.Value);
-            return commentModel;
+            return result;
         }
         #endregion
     }

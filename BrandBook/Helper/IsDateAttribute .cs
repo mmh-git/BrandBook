@@ -24,7 +24,7 @@ namespace BrandBook.CustomValidation
             yield return new ModelClientValidationRule
             {
                 ErrorMessage = "Invalid Date Format",
-                ValidationType = "IsDate"
+                ValidationType = "isdate"
             };
         }
     }
