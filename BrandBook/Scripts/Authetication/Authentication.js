@@ -15,7 +15,7 @@ $(document).ready(function () {
                 url: regUrl,
                 type: 'POST',
                 data: serialiedData,
-                async: false,
+                async: true,
                 success: function (data) {
                     if (data == "done") {
                         if (!$('.loginErrorMsg').hasClass('hide')) {
@@ -67,3 +67,4 @@ $(document).ready(function () {
         }
     })
 });
+
