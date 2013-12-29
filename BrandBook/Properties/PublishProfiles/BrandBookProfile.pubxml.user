@@ -15,6 +15,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/BrandBook.dll">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 17:32:09</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
@@ -49,6 +50,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/BrandBookDBContext.pdb">
       <publishTime>12/28/2013 21:37:15</publishTime>
 >>>>>>> parent of 90624d6... validation
+=======
+      <publishTime>12/29/2013 02:15:16</publishTime>
+    </File>
+    <File Include="bin/BrandBook.pdb">
+      <publishTime>12/29/2013 02:15:16</publishTime>
+    </File>
+    <File Include="bin/BrandBookBiz.dll">
+      <publishTime>12/28/2013 21:37:17</publishTime>
+    </File>
+    <File Include="bin/BrandBookBiz.pdb">
+      <publishTime>12/28/2013 21:37:17</publishTime>
+    </File>
+    <File Include="bin/BrandBookDBContext.dll">
+      <publishTime>12/28/2013 21:37:15</publishTime>
+    </File>
+    <File Include="bin/BrandBookDBContext.pdb">
+      <publishTime>12/28/2013 21:37:15</publishTime>
+>>>>>>> parent of 90624d6... validation
     </File>
     <File Include="bin/BrandBookModel.dll">
       <publishTime>12/28/2013 21:12:34</publishTime>
@@ -58,15 +77,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/BrandBookRepository.dll">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 17:32:05</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
       <publishTime>12/29/2013 17:32:05</publishTime>
 =======
+=======
+>>>>>>> parent of 90624d6... validation
       <publishTime>12/28/2013 21:37:17</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
       <publishTime>12/28/2013 21:37:17</publishTime>
+<<<<<<< HEAD
+>>>>>>> parent of 90624d6... validation
+=======
 >>>>>>> parent of 90624d6... validation
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
@@ -182,7 +207,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/Site.css">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 18:14:32</publishTime>
+=======
+      <publishTime>12/29/2013 02:47:47</publishTime>
+>>>>>>> parent of 90624d6... validation
 =======
       <publishTime>12/29/2013 02:47:47</publishTime>
 >>>>>>> parent of 90624d6... validation
@@ -522,7 +551,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/Registration/registration.js">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 12:41:41</publishTime>
+=======
+      <publishTime>12/29/2013 00:19:35</publishTime>
+>>>>>>> parent of 90624d6... validation
 =======
       <publishTime>12/29/2013 00:19:35</publishTime>
 >>>>>>> parent of 90624d6... validation
@@ -577,7 +610,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Home/Index.cshtml">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 14:21:14</publishTime>
+=======
+      <publishTime>12/29/2013 03:44:34</publishTime>
+>>>>>>> parent of 90624d6... validation
 =======
       <publishTime>12/29/2013 03:44:34</publishTime>
 >>>>>>> parent of 90624d6... validation
@@ -605,7 +642,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Web.config">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <publishTime>12/29/2013 18:14:52</publishTime>
+=======
+      <publishTime>12/29/2013 03:44:46</publishTime>
+>>>>>>> parent of 90624d6... validation
 =======
       <publishTime>12/29/2013 03:44:46</publishTime>
 >>>>>>> parent of 90624d6... validation
