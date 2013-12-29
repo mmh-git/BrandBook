@@ -14,7 +14,8 @@
         var regUrl = baseUrl + "Account/SignUp";
         var serialiedData = $("#divSignUp :input").serialize();
         $.validator.unobtrusive.parse("#frmSignUp");
-        if ($('#frmSignUp').valid()) {
+        var validDate=isDate($('#DateOfBirth').val());
+        if ($('#frmSignUp').valid() && validDate) {
             showSignupLoader();
             $.ajax({
                 url: regUrl,
