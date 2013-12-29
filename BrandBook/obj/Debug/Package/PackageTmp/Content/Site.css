@@ -125,9 +125,11 @@ h5, h6
 
 #header
 {
-    width: 100%;
+    width: 1280px;
     height: 55px;
     background-color: #7ac0da;
+    position:fixed;
+    z-index:20000;
 }
 
 #headerLogo
@@ -170,15 +172,27 @@ h5, h6
     margin-top: 14px;
     display: none;
 }
-
+#loginContent {
+    width: 1280px;
+}
 #divMain
 {
-    width: 100%;
-    /*border:1px solid #c8c8c8;
-    border-radius:10px 10px 0px 0px;*/
+    /*For sliding top to bottom*/
+    /*width: 100%;
+    border:1px solid #c8c8c8;
+    border-radius:10px 10px 0px 0px;
     bottom: 0px;
     background-color: buttonface;
+    display: none;*/
+
+
+    /* for slidin bottom to top*/
+    margin-top:5px;
+    bottom: -63px;
     display: none;
+    height: 100%;
+    position: absolute;
+    width: 1280px;
 }
 
 .legend
@@ -257,6 +271,7 @@ footer
     position: relative;
     width: 179px;
     word-wrap: break-word;
+    min-height: 800px;
 
 }
 
@@ -266,6 +281,7 @@ footer
     border-right: 1px solid #CCCCCC;
     padding: 50px;
     width: 59%;
+    min-height: 800px;
 }
 /* site title
 ----------------------------------------------------------*/
