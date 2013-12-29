@@ -17,9 +17,9 @@ UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
 join Images as img
 on ud.proPicId=img.ImageID
-
 where su.StatusType='T'
-union 
+
+union all
 select 
 temp.StatusID as StatusID,
 temp.StatusType as StatusType,
@@ -41,8 +41,6 @@ on su.StatusContent=img1.ImageID
 where su.StatusType='I') as temp
 join Images as img2
 on temp.proPicId=img2.ImageID
-
-
 union all
 
 select 
@@ -67,7 +65,6 @@ where su.StatusType='V') as temp
 join Images as img2
 on temp.proPicId=img2.ImageID
 
-order by su.createdDate desc 
 /*************All Comments*****************/
 
 select 

@@ -87,8 +87,8 @@ namespace BrandBook.Models
 
         [Required]
         [Display(Name = "Email Address")]
+        [DataType(DataType.EmailAddress,ErrorMessage="The Email Address Must be valid")]
         [RegularExpression(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", ErrorMessage = "e.g example@something.com")]
-        [Remote("IsEmailAvailable", "Validation")]
         public string Email { get; set; }
 
         [Required]

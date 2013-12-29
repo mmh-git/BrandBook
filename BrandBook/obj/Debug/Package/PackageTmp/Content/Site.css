@@ -296,10 +296,9 @@ footer
 
     .statusInput textarea
     {
-      border: medium none;
-    height: 27px;
-    resize: none;
-    padding:4px;
+        height: 32px;
+        border: none;
+        resize: none;
         /*overflow:visible;*/
     }
 

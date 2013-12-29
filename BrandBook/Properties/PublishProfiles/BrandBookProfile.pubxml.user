@@ -14,6 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:29:42</publishTime>
     </File>
     <File Include="bin/BrandBook.dll">
+<<<<<<< HEAD
       <publishTime>12/29/2013 18:52:48</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
@@ -56,12 +57,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/BrandBookBiz.pdb">
       <publishTime>12/29/2013 18:45:57</publishTime>
+=======
+      <publishTime>12/29/2013 11:44:15</publishTime>
+    </File>
+    <File Include="bin/BrandBook.pdb">
+      <publishTime>12/29/2013 11:44:15</publishTime>
+    </File>
+    <File Include="bin/BrandBookBiz.dll">
+      <publishTime>12/29/2013 11:44:10</publishTime>
+    </File>
+    <File Include="bin/BrandBookBiz.pdb">
+      <publishTime>12/29/2013 11:44:10</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
     <File Include="bin/BrandBookDBContext.dll">
-      <publishTime>12/29/2013 17:32:04</publishTime>
+      <publishTime>12/29/2013 11:31:14</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.pdb">
-      <publishTime>12/29/2013 17:32:04</publishTime>
+      <publishTime>12/29/2013 11:31:14</publishTime>
     </File>
     <File Include="bin/BrandBookModel.dll">
       <publishTime>12/25/2013 17:21:54</publishTime>
@@ -70,14 +83,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2013 17:21:54</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.dll">
+      <publishTime>12/29/2013 11:31:14</publishTime>
+    </File>
+    <File Include="bin/BrandBookRepository.pdb">
+<<<<<<< HEAD
+      <publishTime>12/29/2013 17:32:05</publishTime>
       <publishTime>12/29/2013 17:32:05</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
       <publishTime>12/29/2013 17:32:05</publishTime>
-      <publishTime>12/29/2013 17:32:05</publishTime>
-    </File>
-    <File Include="bin/BrandBookRepository.pdb">
-      <publishTime>12/29/2013 17:32:05</publishTime>
+=======
+      <publishTime>12/29/2013 11:31:14</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>12/01/2013 23:29:36</publishTime>
@@ -191,9 +208,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2011 08:47:04</publishTime>
     </File>
     <File Include="Content/Site.css">
+<<<<<<< HEAD
       <publishTime>12/29/2013 18:14:32</publishTime>
       <publishTime>12/29/2013 02:47:47</publishTime>
       <publishTime>12/29/2013 18:59:09</publishTime>
+=======
+      <publishTime>12/29/2013 11:31:13</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
     <File Include="Content/themes/base/images/animated-overlay.gif">
       <publishTime>12/02/2013 16:36:56</publishTime>
@@ -529,8 +550,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:29:20</publishTime>
     </File>
     <File Include="Scripts/Registration/registration.js">
+<<<<<<< HEAD
       <publishTime>12/29/2013 12:41:41</publishTime>
       <publishTime>12/29/2013 18:26:12</publishTime>
+=======
+      <publishTime>12/29/2013 11:31:13</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
     <File Include="Scripts/status/status.js">
       <publishTime>12/26/2013 20:03:38</publishTime>
@@ -581,9 +606,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:28:34</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
+<<<<<<< HEAD
       <publishTime>12/29/2013 14:21:14</publishTime>
       <publishTime>12/29/2013 03:44:34</publishTime>
       <publishTime>12/29/2013 18:26:12</publishTime>
+=======
+      <publishTime>12/29/2013 11:51:38</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/01/2013 23:28:34</publishTime>
@@ -607,9 +636,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/02/2013 12:16:16</publishTime>
     </File>
     <File Include="Web.config">
+<<<<<<< HEAD
       <publishTime>12/29/2013 18:14:52</publishTime>
       <publishTime>12/29/2013 03:44:46</publishTime>
       <publishTime>12/29/2013 18:59:19</publishTime>
+=======
+      <publishTime>12/29/2013 11:51:45</publishTime>
+>>>>>>> parent of 77a25a6... css fix
     </File>
   </ItemGroup>
 </Project>
