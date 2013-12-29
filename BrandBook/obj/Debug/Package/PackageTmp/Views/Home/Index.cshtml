@@ -28,35 +28,45 @@
                 <legend>Registration Form</legend>
                 <ul class="list-unstyled">
                     <li>
+                        
                         @Html.TextBox("FirstName", null, new { @class = "form-control", placeholder = "First Name", style = "width:176px;display:inline" })
-                        @Html.TextBox("LastName", null, new { @class = "form-control", placeholder = "Last Name", style = "width:170px;display:inline" })
+                        @Html.ValidationMessageFor(m=>m.FirstName)
+                        @Html.TextBox("LastName", null, new { @class = "form-control", placeholder = "Last Name", style = "width:170px;display:inline" })  
+                        @Html.ValidationMessageFor(m=>m.LastName)
+                        
+                       
                     </li>
                     <li>
                         @*@Html.Label("User Name")*@
                         @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
+                        @Html.ValidationMessageFor(m=>m.UserName)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.Password("Password", null, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m=>m.Password)
                     </li>
                     <li>
                         @*@Html.Label("Confirm Password")*@
                         @Html.Password("ConfirmPassword", null, new { @class = "form-control", placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(m=>m.ConfirmPassword)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Email Address" })
+                        @Html.ValidationMessageFor(m=>m.Email)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.TextBox("Designation", null, new { @class = "form-control", placeholder = "Designation" })
+                        @Html.ValidationMessageFor(m=>m.Designation)
                     </li>
                     <li>
                         <div class="birthday-wrapper ">
-                            <div class="column ">
+                            <div class="column birthday-fields-wrapper">
+                                <div class="column ">
                                 <label class="birthday-label ">Birthday</label>
                             </div>
-                            <div class="column birthday-fields-wrapper">
                                 <div class="column birthday-fields">
                                     <div aria-hidden="true" class="birthday-drop-down">Month</div>
                                     <div class="arrow-container">
@@ -267,17 +277,29 @@
                                     $("#DateOfBirth").val($('#month').val() + '/' + $('#day').val() + '/' + $('#year').val());
                                 })
                             </script>
-                            @Html.Hidden("DateOfBirth")
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            @Html.TextBox("DateOfBirth", null, new {@class="form-control"})
+=======
+                            <input type="hidden" name="DateOfBirth" id="DateOfBirth" />
+>>>>>>> parent of 90624d6... validation
+=======
+                            <input type="hidden" name="DateOfBirth" id="DateOfBirth" />
+>>>>>>> parent of 90624d6... validation
                         </div>
+
+                        @Html.ValidationMessageFor(m=>m.DateOfBirth)
+                        
                     </li>
                     <li>
                         @Html.RadioButton("Gender", "Male")Male
-                        @Html.RadioButton("Gender", "Female")Female
+                        @Html.RadioButton("Gender", "Female")Female<br />
+                        @Html.ValidationMessageFor(m=>m.Gender)
                     </li>
                 </ul>
                 <input type="button" class="btn btn-info" value="Register" id="btnRegister" />
                 <div class="validationSummaryWrapper">
-                @Html.ValidationSummary()
+                @*@Html.ValidationSummary()*@
             </div>
             </fieldset>
             <div class="signup-loading-overlay hide-loader ">
