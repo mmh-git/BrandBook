@@ -15,7 +15,7 @@
     <AssemblyName>BrandBook</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -185,12 +185,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\IsUserAvailableAttribute .cs" />
     <Compile Include="Helper\IsDateAttribute .cs" />
     <Compile Include="Helper\ResponseCapture.cs" />
     <Compile Include="Helper\SessionVars.cs" />
@@ -390,7 +388,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>41637</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:41637/</IISUrl>
+          <IISUrl>http://192.168.137.2/BrandBook</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
