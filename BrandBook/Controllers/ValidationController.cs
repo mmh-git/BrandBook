@@ -22,6 +22,19 @@ namespace BrandBook.Controllers
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
         }
+        public JsonResult IsEmailAvailable(string Email)
+        {
+            if (Membership.FindUsersByName(Email).Count != 0)
+            {
+                string msg = string.Format("Email address is already taken");
+                return Json(msg, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+        }
 
     }
 }

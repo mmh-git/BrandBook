@@ -296,9 +296,10 @@ footer
 
     .statusInput textarea
     {
-        height: 32px;
-        border: none;
-        resize: none;
+      border: medium none;
+    height: 27px;
+    resize: none;
+    padding:4px;
         /*overflow:visible;*/
     }
 
@@ -668,7 +669,7 @@ input, textarea
     font-size: 1.2em;
     margin: 5px 0 6px 0;
     padding: 5px;
-    /*width: 300px;*/
+    width: 300px;
 }
 
 textarea

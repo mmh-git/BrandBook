@@ -14,22 +14,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:29:42</publishTime>
     </File>
     <File Include="bin/BrandBook.dll">
-      <publishTime>12/29/2013 11:44:15</publishTime>
+      <publishTime>12/29/2013 17:32:09</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
-      <publishTime>12/29/2013 11:44:15</publishTime>
+      <publishTime>12/29/2013 17:32:08</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.dll">
-      <publishTime>12/29/2013 11:44:10</publishTime>
+      <publishTime>12/29/2013 17:32:06</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.pdb">
-      <publishTime>12/29/2013 11:44:10</publishTime>
+      <publishTime>12/29/2013 17:32:06</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.dll">
-      <publishTime>12/29/2013 11:31:14</publishTime>
+      <publishTime>12/29/2013 17:32:04</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.pdb">
-      <publishTime>12/29/2013 11:31:14</publishTime>
+      <publishTime>12/29/2013 17:32:04</publishTime>
     </File>
     <File Include="bin/BrandBookModel.dll">
       <publishTime>12/25/2013 17:21:54</publishTime>
@@ -38,10 +38,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2013 17:21:54</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.dll">
-      <publishTime>12/29/2013 11:31:14</publishTime>
+      <publishTime>12/29/2013 17:32:05</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
-      <publishTime>12/29/2013 11:31:14</publishTime>
+      <publishTime>12/29/2013 17:32:05</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>12/01/2013 23:29:36</publishTime>
@@ -155,7 +155,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2011 08:47:04</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/29/2013 11:31:13</publishTime>
+      <publishTime>12/29/2013 18:14:32</publishTime>
     </File>
     <File Include="Content/themes/base/images/animated-overlay.gif">
       <publishTime>12/02/2013 16:36:56</publishTime>
@@ -491,7 +491,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:29:20</publishTime>
     </File>
     <File Include="Scripts/Registration/registration.js">
-      <publishTime>12/29/2013 11:31:13</publishTime>
+      <publishTime>12/29/2013 12:41:41</publishTime>
     </File>
     <File Include="Scripts/status/status.js">
       <publishTime>12/26/2013 20:03:38</publishTime>
@@ -542,7 +542,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/01/2013 23:28:34</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/29/2013 11:51:38</publishTime>
+      <publishTime>12/29/2013 14:21:14</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/01/2013 23:28:34</publishTime>
@@ -566,7 +566,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/02/2013 12:16:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/29/2013 11:51:45</publishTime>
+      <publishTime>12/29/2013 18:14:52</publishTime>
     </File>
   </ItemGroup>
 </Project>
