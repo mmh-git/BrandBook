@@ -5,13 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BrandBook.CustomValidation;
+using System.Web.Security;
 namespace BrandBook.CustomValidation
 {
-    public class IsDateAttribute : ValidationAttribute, IClientValidatable
+    public class IsUserAvailable : ValidationAttribute, IClientValidatable
     {
         public override bool IsValid(object value)
         {
-            if (value != null || value.isDate())
+            if (Membership.FindUsersByName(value.ToString()).Count != 0)
             {
                 return true;
             }
@@ -23,26 +24,10 @@ namespace BrandBook.CustomValidation
         {
             yield return new ModelClientValidationRule
             {
-                ErrorMessage = "Invalid Date Format",
-                ValidationType = "isdate"
+
+                ErrorMessage = "User already exists",
+                ValidationType = "isuseravailable"
             };
-        }
-    }
-
-
-    public static class MyExtension
-    {
-        public static bool isDate(this object value)
-        {
-            try
-            {
-                DateTime dt = Convert.ToDateTime(value);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
         }
     }
 

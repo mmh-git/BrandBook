@@ -30,7 +30,7 @@ namespace BrandBook.Models
 
     public class RegisterExternalLoginModel
     {
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
@@ -39,12 +39,12 @@ namespace BrandBook.Models
 
     public class LocalPasswordModel
     {
-        [Required]
+        [Required(ErrorMessage="*")]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]
         public string OldPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
@@ -58,11 +58,11 @@ namespace BrandBook.Models
 
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -73,33 +73,34 @@ namespace BrandBook.Models
 
     public class RegisterModel
     {
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name = "User name")]
+        [Remote("IsUserAvailable","Validation")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name="First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress,ErrorMessage="The Email Address Must be valid")]
         [RegularExpression(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", ErrorMessage = "e.g example@something.com")]
         public string Email { get; set; }
 
-        [Required]
-        [IsDate]
+        [Required(ErrorMessage="*")]
+        [IsDate(ErrorMessage="Invalid Date Format")]
         [Display(Name = "Birthday")]
-        
         public DateTime DateOfBirth { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage="*")]
         public string Designation { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -110,7 +111,7 @@ namespace BrandBook.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="*")]
         public string Gender { get; set; }
     }
 
