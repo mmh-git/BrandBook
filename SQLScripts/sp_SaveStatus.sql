@@ -106,7 +106,7 @@ end
 go
 /*******************************SAVE COMMENTS********************************/
 
-create proc Comments_SaveComment
+alter proc Comments_SaveComment
 (
 	@StatusID int,
 	@CommentedByID int,
@@ -124,6 +124,7 @@ values
 
 select @CommentID=@@IDENTITY
 
+select * from Comments where CommentID=@CommentID
 go
 
 /***********************Save Likes*******************************/
