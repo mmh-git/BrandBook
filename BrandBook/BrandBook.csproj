@@ -190,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\IsDateAttribute .cs" />
+    <Compile Include="Helper\IsUserAvailableAttribute .cs" />
     <Compile Include="Helper\ResponseCapture.cs" />
     <Compile Include="Helper\SessionVars.cs" />
     <Compile Include="Hubs\StatusHub.cs" />
