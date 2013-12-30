@@ -51,6 +51,7 @@ $(document).ready(function () {
 
 function loadUser() {
     var statUrl = baseUrl + "User/Index";
+    var documentMinHeight = ($(document).height() - 92) + 'px';
     //$("#divMain").css("height", mainHeight);
     //$("#content").css("height", mainHeight - 4);
     window.ShowLoading(true);
@@ -58,6 +59,10 @@ function loadUser() {
         $.ajax({
             url: statUrl, type: 'GET', async: true, success: function (result) {
                 $("#StatusMain").html(result);
+                //$('.statusList-middle , profile-left').css('min-height', documentMinHeight);
+                $('.statusList-middle , profile-left').addClass('contentMinHeight');
+                $('.contentMinHeight').css({ 'min-height': documentMinHeight });
+
                 window.ShowLoading(false);
             }
         });

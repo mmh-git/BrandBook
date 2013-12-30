@@ -32,6 +32,12 @@
        
         <script type="text/javascript">
             var baseUrl = "@System.Configuration.ConfigurationManager.AppSettings["baseUrl"].ToString()";
+
+            //$(document).ready(function () {
+                var documentWidth = $(document).width() + 'px';
+                $('#header, #divMain ').css('width', documentWidth);
+            //});
+
         </script> 
     </head>
     <body>
@@ -49,4 +55,15 @@
     </body>
      <script src='@Url.Content("~/Scripts/jquery.signalR-1.1.4.min.js")'></script>
 <script src='@Url.Content("~/signalr/hubs")'></script>
+    <script type="text/javascript">
+       
+
+        //$(document).ready(function () {
+        var documentWidth = $(document).width() + 'px';
+        //$('#header, #divMain ').css('width', documentWidth);
+        $('#header, #divMain ').addClass('documentWidht');
+        $('.documentWidht').css({'width':documentWidth})
+        //});
+
+        </script> 
 </html>

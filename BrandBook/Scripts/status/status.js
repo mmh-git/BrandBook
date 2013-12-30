@@ -17,7 +17,7 @@
                 async:false,
                 data: { 'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID') },
                 success: function () {
-                   
+                    $("#txtStatusInput").val("");
                 }
             });
 

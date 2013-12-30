@@ -1,8 +1,12 @@
-use brandbook
+USE [brandbook]
+GO
+/****** Object:  StoredProcedure [dbo].[StatusUPdate_SaveStatus]    Script Date: 12/25/2013 17:21:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-go
-
-alter proc StatusUPdate_SaveStatus
+ALTER proc [dbo].[StatusUPdate_SaveStatus]
 (
 @StatusID int output,
 @UserID uniqueidentifier,
@@ -37,7 +41,7 @@ join
 UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
 join Images as img
-on ud.UserDetailsID=img.UserDetailsID
+on ud.proPicId=img.ImageID
 	where su.StatusID=@StatusID
 End
 ELSE IF @StatusType='I'
@@ -67,7 +71,7 @@ Begin
 	UserDetails as ud
 	on su.UserDetailsID=ud.UserDetailsID
 	join Images as img2
-	on ud.UserDetailsID=img2.UserDetailsID
+	on ud.proPicId=img2.ImageID
 	where su.StatusID=@StatusID
 	
 End
@@ -98,15 +102,17 @@ begin
 	UserDetails as ud
 	on su.UserDetailsID=ud.UserDetailsID
 	join Images as img2
-	on ud.UserDetailsID=img2.UserDetailsID
+	on ud.proPicId=img2.ImageID
 	where su.StatusID=@StatusID
 end
+
+
 
 
 go
 /*******************************SAVE COMMENTS********************************/
 
-alter proc Comments_SaveComment
+create proc Comments_SaveComment
 (
 	@StatusID int,
 	@CommentedByID int,
@@ -124,7 +130,6 @@ values
 
 select @CommentID=@@IDENTITY
 
-select * from Comments where CommentID=@CommentID
 go
 
 /***********************Save Likes*******************************/
