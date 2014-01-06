@@ -12,7 +12,7 @@ ALTER proc [dbo].[StatusUPdate_SaveStatus]
 @UserID uniqueidentifier,
 @UserDetailsID int,
 @StatusType varchar(10),
-@StatusContent varchar(500),
+@StatusContent nvarchar(MAX),
 @CreatedDate datetime
 )
 as
@@ -112,7 +112,7 @@ end
 go
 /*******************************SAVE COMMENTS********************************/
 
-create proc Comments_SaveComment
+alter proc Comments_SaveComment
 (
 	@StatusID int,
 	@CommentedByID int,

@@ -64,11 +64,3 @@ values(@UserId,@FirsName,@LasName,@Designation,@DOB,@Gender,@proPicId,@createdDa
 
 select @UserDetailsID=@@IDENTITY
 go
-
-
-exec UserDetails_SaveUserDetails 'e0f19083-2df7-4a4a-86e9-045726a53324',0,
-'Mahmudul','Hassan','Software Engineer','1/1/1985','Male',1,'1/2/2123'
-
-select * from UserDetails
-
-select * from aspnet_Users
