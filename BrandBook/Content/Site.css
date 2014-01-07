@@ -129,7 +129,7 @@ h5, h6
     height: 55px;
     background-color: #7ac0da;
     position:fixed;
-    z-index:20000;
+    z-index:20;
 }
 
 #headerLogo

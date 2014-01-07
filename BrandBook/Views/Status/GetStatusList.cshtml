@@ -11,7 +11,7 @@
         {
             foreach (StatusUpdateModel temp in Model)
             {
-                <div class="statusWrapper" id='"@temp.StatusID"'>
+                <div class="statusWrapper" id='@temp.StatusID'>
                     <div class="statusProfPicWrapper">
                     <img id="@temp.PicID" src='@Url.Content(@temp.ProPicUrl)' class="statusProfilePic"/>
                         </div>
@@ -34,7 +34,7 @@
                         if (temp.Likes.Where(l => l.LikedByUserID == SessionVars.CurrentLoggedInUser.UserDetailsID).Count() > 0)
                         {
                             <div class="LikeCommentWrapper">
-                                <a class="aLike" href="#" data-statusid='"@temp.StatusID"' 
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' 
                                     data-likeid='@temp.Likes.Find(t => t.LikedByUserID == BrandBook.Helper.SessionVars.CurrentLoggedInUser.UserDetailsID).LikeID'
                                     data-liketype="S">Unlike</a><a href="#">Comment</a>
                             </div>

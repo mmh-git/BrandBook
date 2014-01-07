@@ -1,12 +1,12 @@
-﻿$(function () {
-
-    var status = $.connection.statusHub;
+﻿$(window).ready(function () {
+    var status =$.connection.statusHub;
     status.client.GetNewStatus = function (result)
     {
         $("#divStatus").children('.no-update').detach();
         $("#divStatus").prepend(result.Data.html);
         $("#statusInput").children(".PostStatus").addClass('Shrink').removeClass('Expand');
     }
+    $.connection.hub.start();
     $.connection.hub.start().done(function () {
         $("#btnPostStatus").on('click', function () {
             var statusUrl = baseUrl + "Status/SaveStatus";
