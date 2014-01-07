@@ -35,22 +35,20 @@ namespace BrandBookDBContext
 
         #region DBComment public method
 
-        public LikeModel  SaveLike(LikeModel likeModel)
+        public DataTable  SaveLike(LikeModel likeModel)
         {
-            _spName = "Likes_SaveLike";
-            SqlParameter sqlparam = new SqlParameter("@LikID", likeModel.LikeID);
-            sqlparam.Direction = ParameterDirection.InputOutput;
+            _spName = "sp_SaveDeleteLike";
+           
             _spParameters = new SqlParameter[] 
             {
-                new SqlParameter("@likedContentID",likeModel.LikedContentID),
-                new SqlParameter("@LikedByUSerID",likeModel.LikedByUserID),
-                sqlparam,
-                new SqlParameter("@LikedContentType",likeModel.LikedContentType),
-                new SqlParameter("@CreatedDate",likeModel.CreatedDate)
+                new SqlParameter("@LikedContentId",likeModel.LikedContentID),
+                new SqlParameter("@LikeID", likeModel.LikeID),
+                new SqlParameter("@UserID",likeModel.LikedByUserID),
+                new SqlParameter("@LikedContentType",likeModel.LikedContentType)
             };
-            int result = ExecuteNoResult(_spName, _spParameters);
-            likeModel.LikeID = Convert.ToInt32(sqlparam.Value);
-            return likeModel;
+            DataTable dt = ExecuteDataTable(_spName, _spParameters);
+            
+            return dt;
         }
         #endregion
     }

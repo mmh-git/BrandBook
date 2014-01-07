@@ -39,7 +39,7 @@ namespace BrandBookBiz
         }
         #endregion
         #region Like Method
-        public LikeModel SaveLike(LikeModel likeModel)
+        public List<LikeModel> SaveLike(LikeModel likeModel)
         {
             return _likeRepository.SaveLike(likeModel);
         }

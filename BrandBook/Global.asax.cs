@@ -32,5 +32,7 @@ namespace BrandBook
         {
             
         }
+        protected void Session_End() {
+        }
     }
 }

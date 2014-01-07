@@ -9,11 +9,11 @@ using BrandBook.Controllers;
 using System.Web.Security;
 namespace BrandBook.Hubs
 {
-    public class StatusHub:Hub
+    public class LikeHub:Hub
     {
-        public void GetNewStatus(JsonResult result)
+        public void SaveLikeCallBack(JsonResult result)
         {
-            Clients.All.GetNewStatus(result);
+            Clients.All.SaveLikeCallBack(result);
         }
     }
 }

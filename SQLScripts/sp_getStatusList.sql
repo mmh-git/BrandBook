@@ -94,7 +94,7 @@ select
 L.LikeID as LikeID,
 L.LikedByUserId as LikedByUserID,
 ud.FirstName+' '+ud.LastName as LikedByUserFullName,
-L.LikedContentId as LikeContentID,
+L.LikedContentId as LikedContentID,
 L.LikedContentType as LikedContentType,
 L.CreatedDate as CreatedDate
 from

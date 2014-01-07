@@ -2,14 +2,16 @@
 @using BrandBookModel
 @{
     Layout = null;
+    
 }
+@using BrandBook.Helper;
 <div id="divStatus">
     @{
         if (Model.Count > 0)
         {
             foreach (StatusUpdateModel temp in Model)
             {
-                <div class="statusWrapper">
+                <div class="statusWrapper" id='"@temp.StatusID"'>
                     <div class="statusProfPicWrapper">
                     <img id="@temp.PicID" src='@Url.Content(@temp.ProPicUrl)' class="statusProfilePic"/>
                         </div>
@@ -29,30 +31,42 @@
                     
                     @if (temp.Likes.Count > 0)
                     {
-                        if (temp.Likes.FindIndex(t => t.LikedByUserID == BrandBook.Helper.SessionVars.CurrentLoggedInUser.UserDetailsID) > 0)
+                        if (temp.Likes.Where(l => l.LikedByUserID == SessionVars.CurrentLoggedInUser.UserDetailsID).Count() > 0)
                         {
                             <div class="LikeCommentWrapper">
-                                <a href="#" data-statusid='"@temp.StatusID"' 
-                                    data-likeid='"@temp.Likes.Find(t => t.LikedByUserID == BrandBook.Helper.SessionVars.CurrentLoggedInUser.UserDetailsID).LikeID"'>Unlike</a><a href="#">Comment</a>
+                                <a class="aLike" href="#" data-statusid='"@temp.StatusID"' 
+                                    data-likeid='@temp.Likes.Find(t => t.LikedByUserID == BrandBook.Helper.SessionVars.CurrentLoggedInUser.UserDetailsID).LikeID'
+                                    data-liketype="S">Unlike</a><a href="#">Comment</a>
                             </div>
                             <div class="likeStatus">
-                                if(@temp.Likes.Count==1)
-                                    <a href="#">You </a>like this
+                                @{
+                                    if(@temp.Likes.Count==1)
+                                    {
+                                    <a class="likemsg" href="#">You </a><span>like this</span>
+                                                                        }
                                 else
-                                    <a href="#">@temp.Likes[0].LikedByUserFullName </a>like this
+                                {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>like this</span>
+                                                                                                       }
+                                    }
                             </div>
                         }
                         else
                         {
                             
                           <div class="LikeCommentWrapper">
-                                <a href="#" data-statusid='"@temp.StatusID"' data-likeid="0">Like</a><a href="#">Comment</a>
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' data-likeid="0" data-liketype="S">Like</a><a href="#">Comment</a>
                           </div>
                           <div class="likeStatus">
-                                if(@temp.Likes.Count==1)
-                                    <a href="#">@temp.Likes[0].LikedByUserFullName </a>likes this
+                                @{if(temp.Likes.Count==1)
+                                  {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>likes this</span>
+                                                                                                       }
                                 else
-                                    <a href="#">@temp.Likes[0].LikedByUserFullName </a>like this
+                                {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>like this</span>
+                                                                                                       }
+                                                                                                       }
                           </div>  
                    
                         
@@ -61,10 +75,10 @@
                     else
                     {
                         <div class="LikeCommentWrapper">
-                                <a href="#" data-statusid='"@temp.StatusID"' data-likeid="0">Like</a><a href="#">Comment</a>
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' data-likeid="0" data-liketype="S">Like</a><a href="#">Comment</a>
                           </div>
                           <div class="likeStatus hide">
-                                    <a href="#"></a>likes this
+                                    <a class="likemsg" href="#"></a><span>likes this</span>
                           </div>  
                     }
                     @if (temp.Comments.Count > 0)

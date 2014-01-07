@@ -12,6 +12,7 @@ using BrandBook.Filters;
 using BrandBook.Models;
 using BrandBookModel;
 using BrandBook.Helper;
+using BrandBookBiz;
 namespace BrandBook.Controllers
 {
    
@@ -33,11 +34,12 @@ namespace BrandBook.Controllers
             {
                 FormsAuthentication.SetAuthCookie(model.UserName,model.RememberMe);
                 HttpContext.Response.Cookies["UserID"].Value = Membership.GetUser(model.UserName).ProviderUserKey.ToString();
-                SessionVars.CurrentLoggedInUser = new UserModel()
-                {
-                    UserID = Membership.GetUser(model.UserName).ProviderUserKey.ToString(),
-                    isLoggedIn = true
-                }; 
+                UserModel userModel = new UserModel();
+                userModel.UserID = Membership.GetUser(model.UserName).ProviderUserKey.ToString();
+                userModel.isLoggedIn = true;
+                BrandBookFacadeBiz facade = new BrandBookFacadeBiz();
+                userModel= facade.GetUserDetails(userModel);
+                SessionVars.CurrentLoggedInUser = userModel;
                 isLoggedIn = "done";
             }
             return isLoggedIn;
@@ -124,7 +126,7 @@ namespace BrandBook.Controllers
         {
             Dictionary<string, bool> is_LoggedIn = new Dictionary<string,bool>();
             
-            if (HttpContext.Request.Cookies[".ASPXAUTH"] == null)
+            if (HttpContext.Request.Cookies[".ASPXAUTH"] == null || SessionVars.CurrentLoggedInUser==null)
             {
                 is_LoggedIn.Add("loggedIn", false);
                 HttpContext.Response.Cookies["UserID"].Value = "";

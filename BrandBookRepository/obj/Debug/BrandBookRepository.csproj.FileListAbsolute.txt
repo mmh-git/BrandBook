@@ -1,12 +1,3 @@
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookRepository.dll
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookRepository.pdb
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookDBContext.dll
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookModel.dll
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookDBContext.pdb
-E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.csprojResolveAssemblyReference.cache
-E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.dll
-E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.pdb
 E:\Projects\BrandBook20131226\BrandBookRepository\bin\Debug\BrandBookRepository.dll
 E:\Projects\BrandBook20131226\BrandBookRepository\bin\Debug\BrandBookRepository.pdb
 E:\Projects\BrandBook20131226\BrandBookRepository\bin\Debug\BrandBookDBContext.dll
@@ -25,3 +16,12 @@ E:\PROJECTS\GitHubRepo\BrandBook\BrandBookRepository\bin\Debug\BrandBookModel.pd
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.csprojResolveAssemblyReference.cache
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.dll
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.pdb
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookRepository.dll
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookRepository.pdb
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookDBContext.dll
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookModel.dll
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookDBContext.pdb
+E:\Projects\BrandBook\BrandBookRepository\bin\Debug\BrandBookModel.pdb
+E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.csprojResolveAssemblyReference.cache
+E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.dll
+E:\Projects\BrandBook\BrandBookRepository\obj\Debug\BrandBookRepository.pdb
