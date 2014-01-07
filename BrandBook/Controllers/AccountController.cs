@@ -39,6 +39,7 @@ namespace BrandBook.Controllers
                 userModel.isLoggedIn = true;
                 BrandBookFacadeBiz facade = new BrandBookFacadeBiz();
                 userModel= facade.GetUserDetails(userModel);
+                HttpContext.Response.Cookies["UserDetaisID"].Value = userModel.UserDetailsID.ToString();
                 SessionVars.CurrentLoggedInUser = userModel;
                 isLoggedIn = "done";
             }

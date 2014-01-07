@@ -11,7 +11,8 @@
         {
             foreach (StatusUpdateModel temp in Model)
             {
-                <div class="statusWrapper" id='@temp.StatusID'>
+                string sid = "s" + @temp.StatusID;
+                <div class="statusWrapper" id='@sid'>
                     <div class="statusProfPicWrapper">
                     <img id="@temp.PicID" src='@Url.Content(@temp.ProPicUrl)' class="statusProfilePic"/>
                         </div>
