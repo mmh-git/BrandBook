@@ -16,6 +16,7 @@ namespace BrandBook.Controllers
         BrandBookFacadeBiz _biz;
         public ActionResult Index()
         {
+            
             BrandBookFacadeBiz _biz = new BrandBookFacadeBiz();
 
             UserModel userModel = new UserModel() 
@@ -24,6 +25,8 @@ namespace BrandBook.Controllers
             };
 
             userModel = _biz.GetUserDetails(userModel);
+            
+
             return PartialView("UserPartial", userModel);
         }
 

@@ -51,14 +51,19 @@ $(document).ready(function () {
 
 function loadUser() {
     var statUrl = baseUrl + "User/Index";
+    var documentMinHeight = ($(document).height() - 92) + 'px';
     //$("#divMain").css("height", mainHeight);
     //$("#content").css("height", mainHeight - 4);
-    window.ShowLoading(true);
+    ShowLoading(true);
     $("#loginContent").fadeOut(function () {
         $.ajax({
             url: statUrl, type: 'GET', async: true, success: function (result) {
                 $("#StatusMain").html(result);
-                window.ShowLoading(false);
+                //$('.statusList-middle , profile-left').css('min-height', documentMinHeight);
+                $('.statusList-middle , profile-left').addClass('contentMinHeight');
+                $('.contentMinHeight').css({ 'min-height': documentMinHeight });
+
+                ShowLoading(false);
             }
         });
         $("#divMain").slideDown({ duration: 500 });
@@ -89,7 +94,7 @@ function loadUser() {
     //loginContent
 }
 
-window.ShowLoading = function (block)
+function ShowLoading(block)
 {
     if (block) {
         $.blockUI({

@@ -2,43 +2,90 @@
 @using BrandBookModel
 @{
     Layout = null;
+    
 }
+@using BrandBook.Helper;
 <div id="divStatus">
     @{
-        if(Model.Count>0)
+        if (Model.Count > 0)
         {
-            foreach(StatusUpdateModel temp in Model)
+            foreach (StatusUpdateModel temp in Model)
             {
-                <div class="statusWrapper">
+                string sid = "s" + @temp.StatusID;
+                <div class="statusWrapper" id='@sid'>
                     <div class="statusProfPicWrapper">
                     <img id="@temp.PicID" src='@Url.Content(@temp.ProPicUrl)' class="statusProfilePic"/>
                         </div>
                     <h1><a href="#">@temp.FullName</a>
                         <div class="statusContent">
-                        @if(temp.StatusType=="T")
+                        @if (temp.StatusType == "T")
                         {
                             @temp.StatusContent;
                         }
-                        else if(temp.StatusType=="I")
+                        else if (temp.StatusType == "I")
                         {
                             <img src='@Url.Content(@temp.StatusContent)' class="statuImg" />
                         }
                     </div>
                     </h1>
                     
-                    <div class="LikeCommentWrapper">
-                        <a href="#">Like</a><a href="#">Comment</a>
-                    </div>
-                    @if(temp.Likes.Count>0 )
+                    
+                    @if (temp.Likes.Count > 0)
                     {
-                        <div class="likeStatus">
-                            <a href="#">@temp.Likes.Count people</a>like this
-                        </div>
+                        if (temp.Likes.Where(l => l.LikedByUserID == SessionVars.CurrentLoggedInUser.UserDetailsID).Count() > 0)
+                        {
+                            <div class="LikeCommentWrapper">
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' 
+                                    data-likeid='@temp.Likes.Find(t => t.LikedByUserID == BrandBook.Helper.SessionVars.CurrentLoggedInUser.UserDetailsID).LikeID'
+                                    data-liketype="S">Unlike</a><a href="#">Comment</a>
+                            </div>
+                            <div class="likeStatus">
+                                @{
+                                    if(@temp.Likes.Count==1)
+                                    {
+                                    <a class="likemsg" href="#">You </a><span>like this</span>
+                                                                        }
+                                else
+                                {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>like this</span>
+                                                                                                       }
+                                    }
+                            </div>
+                        }
+                        else
+                        {
+                            
+                          <div class="LikeCommentWrapper">
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' data-likeid="0" data-liketype="S">Like</a><a href="#">Comment</a>
+                          </div>
+                          <div class="likeStatus">
+                                @{if(temp.Likes.Count==1)
+                                  {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>likes this</span>
+                                                                                                       }
+                                else
+                                {
+                                    <a class="likemsg" href="#">@temp.Likes[0].LikedByUserFullName </a><span>like this</span>
+                                                                                                       }
+                                                                                                       }
+                          </div>  
+                   
+                        
+                        }
                     }
-                    @if(temp.Comments.Count>0)
+                    else
+                    {
+                        <div class="LikeCommentWrapper">
+                                <a class="aLike" href="#" data-statusid='@temp.StatusID' data-likeid="0" data-liketype="S">Like</a><a href="#">Comment</a>
+                          </div>
+                          <div class="likeStatus hide">
+                                    <a class="likemsg" href="#"></a><span>likes this</span>
+                          </div>  
+                    }
+                    @if (temp.Comments.Count > 0)
                     {
                         <div class="StatusCommentWrapper">
-                            @foreach(CommentModel tempComment in temp.Comments)
+                            @foreach (CommentModel tempComment in temp.Comments)
                             {
                                 <div class="StatusComment">
                                     <img id="@tempComment.CommentedByUserProPicID" src="@tempComment.CommentedByUserProPicUrl" class="commentUserImage"/>
@@ -46,7 +93,7 @@
                                     <span class="CommentContent">@tempComment.CommentContent</span>
                                     <div class="likeOnCommentWraper">
                                         <a href="#">Like</a>
-                                        @if(@tempComment.Likes.Count>0)
+                                        @if (@tempComment.Likes.Count > 0)
                                         {
                                             <img src='@Url.Content("~/Content/themes/base/images/like.jpg")'> @tempComment.Likes.Count 
                                         }

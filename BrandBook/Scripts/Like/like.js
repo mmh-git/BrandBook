@@ -1,7 +1,8 @@
-﻿$.connection.url = "/signalr/hubs";
+﻿$(document).ready(function () {
+    $.connection.url = "signalr/hubs";
     var like = $.connection.likeHub;
     like.client.SaveLikeCallBack = function (result) {
-        
+
         var msg1 = "";
         var msg2 = "";
 
@@ -23,12 +24,12 @@
 
         $('#s' + result.Data.like.LikedContentID + '  .likeStatus').removeClass("hide").children(".likemsg").html(msg1).next().html(msg2);
         if (result.Data.likes.length == 0) {
-            $('#s' + result.Data.like.LikedContentID + '  .likeStatus').children(".likemsg").addClass("hide").html("").next().html("");
+            $('#s' + result.Data.like.LikedContentID + '  .likeStatus').addClass("hide").children(".likemsg").html("").next().html("");
         }
-        if (result.Data.like.LikeID > 1) {
+        if (result.Data.like.LikedByUserID == getCookie('UserDetaisID') && result.Data.like.LikeID>1) {
             $('#s' + result.Data.like.LikedContentID + '  .aLike').html("Unlike").data("likeid", result.Data.like.LikeID);
         }
-        if (result.Data.like.LikeID == 0) {
+        else {
             $('#s' + result.Data.like.LikedContentID + '  .aLike').html("Like").data("likeid", 0);
         }
 
@@ -50,5 +51,6 @@
             });
         })
     })
+})
 
 

@@ -64,9 +64,10 @@ function loadUser() {
                 $('.contentMinHeight').css({ 'min-height': documentMinHeight });
 
                 ShowLoading(false);
+                $("#divMain").slideDown({ duration: 500 });
             }
         });
-        $("#divMain").slideDown({ duration: 500 });
+        
     });
 
     $("<a id='aLogout' href='#'>Log Out</>").appendTo("#divLogOut");

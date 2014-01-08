@@ -13,7 +13,8 @@
         @Styles.Render("~/Content/css")
 
 
-        <script type="text/javascript" src='@Scripts.Url("~/bundles/jquery")'></script>
+        @*<script type="text/javascript" src='@Scripts.Url("~/bundles/jquery")'></script>*@
+        <script type="text/javascript" src='@Scripts.Url("~/Scripts/jquery-2.0.3.js")'></script>
         <script src="http://code.jquery.com/jquery-migrate-1.1.0.min.js"></script>
         <script src='@Url.Content("~/Scripts/jquery.blockUI.min.js")'></script>
         <script type="text/javascript" src='@Scripts.Url("~/bundles/jqueryui")'></script>
@@ -32,6 +33,12 @@
        
         <script type="text/javascript">
             var baseUrl = "@System.Configuration.ConfigurationManager.AppSettings["baseUrl"].ToString()";
+
+            $(document).ready(function () {
+                var documentWidth = $(document).width() + 'px';
+                $('#header, #divMain ').css('width', documentWidth);
+            });
+
         </script> 
     </head>
     <body>
@@ -49,4 +56,17 @@
     </body>
      <script src='@Url.Content("~/Scripts/jquery.signalR-1.1.4.min.js")'></script>
 <script src='@Url.Content("~/signalr/hubs")'></script>
+    <script type="text/javascript">
+       
+
+        //$(document).ready(function () {
+        var documentWidth = $(document).width() + 'px';
+        //$('#header, #divMain ').css('width', documentWidth);
+        $('#header, #divMain ').addClass('documentWidht');
+        $('.documentWidht').css({'width':documentWidth})
+        //});
+
+        </script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/status/status.js")'></script>
+<script type="text/javascript" src='@Url.Content("~/Scripts/Like/like.js")'></script> 
 </html>

@@ -24,7 +24,8 @@ namespace BrandBook.Controllers
         [HttpPost]
         public void SaveLike(LikeModel likeModel)
         {
-            likeModel.LikedByUserID = SessionVars.CurrentLoggedInUser.UserDetailsID;
+            UserModel currentLoggedInUser = CookieManager.ReloadSessionFromCookie();
+            likeModel.LikedByUserID = currentLoggedInUser.UserDetailsID;
             BrandBookFacadeBiz facade = new BrandBookFacadeBiz();
             List<LikeModel> likes = facade.SaveLike(likeModel);
             var broadCastLikeMessage = GlobalHost.ConnectionManager.GetHubContext<LikeHub>();

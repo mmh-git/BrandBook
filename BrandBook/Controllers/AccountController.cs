@@ -33,14 +33,15 @@ namespace BrandBook.Controllers
             if (ModelState.IsValid && Membership.ValidateUser(model.UserName,model.Password))
             {
                 FormsAuthentication.SetAuthCookie(model.UserName,model.RememberMe);
-                HttpContext.Response.Cookies["UserID"].Value = Membership.GetUser(model.UserName).ProviderUserKey.ToString();
+                CookieManager.AddCookie("UserID",Membership.GetUser(model.UserName).ProviderUserKey.ToString());
                 UserModel userModel = new UserModel();
                 userModel.UserID = Membership.GetUser(model.UserName).ProviderUserKey.ToString();
                 userModel.isLoggedIn = true;
                 BrandBookFacadeBiz facade = new BrandBookFacadeBiz();
                 userModel= facade.GetUserDetails(userModel);
-                HttpContext.Response.Cookies["UserDetaisID"].Value = userModel.UserDetailsID.ToString();
-                SessionVars.CurrentLoggedInUser = userModel;
+                CookieManager.AddCookie("UserDetaisID",userModel.UserDetailsID.ToString());
+                CookieManager.AddCookie("UserName", userModel.UserName.ToString());
+                CookieManager.AddCookie("FirstName", userModel.FirstName.ToString());
                 isLoggedIn = "done";
             }
             return isLoggedIn;
@@ -57,7 +58,7 @@ namespace BrandBook.Controllers
         public string LogOff()
         {
             FormsAuthentication.SignOut();
-            HttpContext.Response.Cookies["UserID"].Value = "";
+            CookieManager.RemoveAllCookies();
             return "success";
         }
 
@@ -127,7 +128,7 @@ namespace BrandBook.Controllers
         {
             Dictionary<string, bool> is_LoggedIn = new Dictionary<string,bool>();
             
-            if (HttpContext.Request.Cookies[".ASPXAUTH"] == null || SessionVars.CurrentLoggedInUser==null)
+            if (HttpContext.Request.Cookies[".ASPXAUTH"] == null)
             {
                 is_LoggedIn.Add("loggedIn", false);
                 HttpContext.Response.Cookies["UserID"].Value = "";
@@ -147,7 +148,6 @@ namespace BrandBook.Controllers
                 }
                 
             }
-
             
 
             //if (this.User.Identity.IsAuthenticated)

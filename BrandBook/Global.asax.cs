@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using BrandBook.Helper;
+using BrandBookBiz;
 using BrandBookModel;
 using Microsoft.AspNet.SignalR;
 namespace BrandBook
@@ -35,5 +36,6 @@ namespace BrandBook
         }
         protected void Session_End() {
         }
+
     }
 }
