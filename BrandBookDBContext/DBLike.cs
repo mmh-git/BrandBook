@@ -42,7 +42,6 @@ namespace BrandBookDBContext
             _spParameters = new SqlParameter[] 
             {
                 new SqlParameter("@LikedContentId",likeModel.LikedContentID),
-                new SqlParameter("@LikeID", likeModel.LikeID),
                 new SqlParameter("@UserID",likeModel.LikedByUserID),
                 new SqlParameter("@LikedContentType",likeModel.LikedContentType)
             };
