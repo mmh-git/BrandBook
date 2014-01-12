@@ -1,0 +1,10 @@
+﻿@model BrandBookModel.CommentModel
+
+<div class="StatusComment" data-statusid="@Model.StatusID" data-commentid="@Model.CommentID" data-commentbyuserid="@Model.CommentedByUserID">
+                                    <img id="@Model.CommentedByUserProPicID" src="@Url.Content(@Model.CommentedByUserProPicUrl)" class="commentUserImage"/>
+                                    <a href="#">@Model.CommentedByUserFullName</a>
+                                    <span class="CommentContent">@Model.CommentContent</span>
+                                    <div class="likeOnCommentWraper">
+                                        <a href="#">Like</a>
+                                     </div>
+                                </div>

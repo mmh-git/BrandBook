@@ -1,6 +1,7 @@
 ﻿$(window).ready(function () {
     var status = $.connection.statusHub;
     var like = $.connection.likeHub;
+    var comment = $.connection.commentHub;
     status.client.GetNewStatus = function (result) {
         $("#divStatus").children('.no-update').detach();
         $("#divStatus").prepend(result.Data.html);
@@ -41,26 +42,15 @@
         }
 
     }
-
+    comment.client.GetComment = function (result)
+    {
+        $('#s' + result.Data.commentModel.StatusID + '  .userComment').prepend(result.Data.html).parent().removeClass('hide');
+    }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
-        $("#btnPostStatus").on('click', function () {
-            var statusUrl = baseUrl + "Status/SaveStatus";
-            //var params = $('#statusInput textarea :input').serialize();
-            $.ajax({
-                url: statusUrl,
-                type: 'POST',
-                async: false,
-                data: { 'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID') },
-                success: function () {
-                    $("#txtStatusInput").val("");
-                }
-            });
-
-            //status.server.saveStatus({ 'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID') });
-        })
+        $("#btnPostStatus").on('click', postStatus);
+        $('#txtStatusInput').on('keyup', postStatus);
     });
-
     $('.aLike').on("click", function (event) {
         var context = $(this);
         event.preventDefault();
@@ -71,8 +61,24 @@
             async: false,
             data: { 'LikedContentID': context.data("statusid"), 'LikedContentType': context.data("liketype") }
         });
+    });
+    $('.StatusComment textarea').on('keyup', function (event) {
+        if (event.keyCode == 13) {
+            var context = $(this);
+            var parent=context.parent();
+            var statusUrl = baseUrl + "Comment/SaveComment";
+            //var params = $('#statusInput textarea :input').serialize();
+            $.ajax({
+                url: statusUrl,
+                type: 'POST',
+                async: false,
+                data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': parent.data('commentbyuserid'), 'CommentContent': context.val(), 'CommentType': 'T','Action':'I' },
+                success: function () {
+                    context.val("");
+                }
+            });
+        }
     })
-
 });
 
 function getCookie(cname) {
@@ -85,3 +91,19 @@ function getCookie(cname) {
     return "";
 }
 
+function postStatus(event) {
+    if (event.type == 'click' || (event.type == 'keyup' && event.key == 'Enter')) {
+        
+        var statusUrl = baseUrl + "Status/SaveStatus";
+        //var params = $('#statusInput textarea :input').serialize();
+        $.ajax({
+            url: statusUrl,
+            type: 'POST',
+            async: false,
+            data: { 'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID') },
+            success: function () {
+                $("#txtStatusInput").val("");
+            }
+        });
+    }
+};

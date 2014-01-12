@@ -24,6 +24,9 @@ namespace BrandBookRepository
             commentModel.CommentedByUserID = Convert.ToInt32(dr["CommentedByID"]);
             commentModel.CommentType = dr["CommentType"].ToString();
             commentModel.CommentContent = dr["CommentContent"].ToString();
+            commentModel.CommentedByUserFullName = dr["CommentedByUserFullName"].ToString();
+            commentModel.CommentedByUserProPicID = Convert.ToInt32(dr["ImageID"]);
+            commentModel.CommentedByUserProPicUrl = dr["ImageUrl"].ToString();
             commentModel.CreatedDate = Convert.ToDateTime(dr["CreatedDate"]);
             return commentModel;
 

@@ -37,20 +37,18 @@ namespace BrandBookDBContext
 
         public DataTable  SaveComment(CommentModel commentModel)
         {
-            _spName = "Comments_SaveComment";
-            SqlParameter sqlparam = new SqlParameter("@CommentID", commentModel.CommentID);
-            sqlparam.Direction = ParameterDirection.InputOutput;
+            _spName = "SaveDeleteComment";
+            
             _spParameters = new SqlParameter[] 
             {
                 new SqlParameter("@StatusID",commentModel.StatusID),
                 new SqlParameter("@CommentedByID",commentModel.CommentedByUserID),
-                sqlparam,
+                new SqlParameter("@CommentID", commentModel.CommentID),
                 new SqlParameter("@CommentType",commentModel.CommentType),
                 new SqlParameter("@CommentContent",commentModel.CommentContent),
-                new SqlParameter("@CreatedDate",commentModel.CreatedDate)
+                new SqlParameter("@Action",commentModel.Action)
             };
             DataTable result = ExecuteDataTable(_spName, _spParameters);
-            commentModel.CommentID = Convert.ToInt32(sqlparam.Value);
             return result;
         }
         #endregion

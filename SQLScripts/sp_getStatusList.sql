@@ -87,7 +87,7 @@ UserDetails as ud
 on cmt.CommentedByID=ud.UserDetailsID
 join
 Images as img
-on cmt.CommentedByID=img.UserDetailsID
+on ud.proPicId=img.ImageID
 /*******************All Likes***********************/
 
 select 
