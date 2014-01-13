@@ -13,7 +13,7 @@
         var msg1 = "";
         var msg2 = "";
         if (result.Data.likes.length == 0) {
-            $('#s' + result.Data.like.LikedContentID + '  .likeStatus').addClass("hide").children(".likemsg").html("").next().html("");
+            $('#StatusMain #s' + result.Data.like.LikedContentID + '  .likeStatus').addClass("hide").children(".likemsg").html("").next().html("");
         }
         else {
             if (result.Data.likes.length > 1) {
@@ -32,53 +32,54 @@
                 }
             }
 
-            $('#s' + result.Data.like.LikedContentID + '  .likeStatus').removeClass("hide").children(".likemsg").html(msg1).next().html(msg2);
+            $('#StatusMain #s' + result.Data.like.LikedContentID + '  .likeStatus').removeClass("hide").children(".likemsg").html(msg1).next().html(msg2);
         }
         if (result.Data.like.LikedByUserID == getCookie('UserDetaisID') && result.Data.like.LikeID > 1) {
-            $('#s' + result.Data.like.LikedContentID + '  .aLike').html("Unlike");
+            $('#StatusMain #s' + result.Data.like.LikedContentID + '  .aLike').html("Unlike");
         }
         else {
-            $('#s' + result.Data.like.LikedContentID + '  .aLike').html("Like");
+            $('#StatusMain #s' + result.Data.like.LikedContentID + '  .aLike').html("Like");
         }
 
     }
     comment.client.GetComment = function (result)
     {
-        $('#s' + result.Data.commentModel.StatusID + '  .userComment').prepend(result.Data.html).parent().removeClass('hide');
+        $('#StatusMain #s' + result.Data.commentModel.StatusID + '  .userComment').prepend(result.Data.html).parent().removeClass('hide');
     }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
-        $("#btnPostStatus").on('click', postStatus);
-        $('#txtStatusInput').on('keyup', postStatus);
-    });
-    $('.aLike').on("click", function (event) {
-        var context = $(this);
-        event.preventDefault();
-        var likeUrl = baseUrl + "Like/SaveLike";
-        $.ajax({
-            url: likeUrl,
-            type: 'POST',
-            async: false,
-            data: { 'LikedContentID': context.data("statusid"), 'LikedContentType': context.data("liketype") }
-        });
-    });
-    $('.StatusComment textarea').on('keyup', function (event) {
-        if (event.keyCode == 13) {
+        $("#StatusMain #btnPostStatus").on('click', postStatus);
+        $('#StatusMain #txtStatusInput').on('keydown', postStatus);
+        $('#StatusMain .aLike').on("click", function (event) {
             var context = $(this);
-            var parent=context.parent();
-            var statusUrl = baseUrl + "Comment/SaveComment";
-            //var params = $('#statusInput textarea :input').serialize();
+            event.preventDefault();
+            var likeUrl = baseUrl + "Like/SaveLike";
             $.ajax({
-                url: statusUrl,
+                url: likeUrl,
                 type: 'POST',
                 async: false,
-                data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': parent.data('commentbyuserid'), 'CommentContent': context.val(), 'CommentType': 'T','Action':'I' },
-                success: function () {
-                    context.val("");
-                }
+                data: { 'LikedContentID': context.data("statusid"), 'LikedContentType': context.data("liketype") }
             });
-        }
-    })
+        });
+        $('#StatusMain .StatusComment').children('textarea').on('keydown', function (event) {
+            if (event.keyCode == 13) {
+                var context = $(this);
+                var parent = context.parent();
+                var statusUrl = baseUrl + "Comment/SaveComment";
+                //var params = $('#statusInput textarea :input').serialize();
+                $.ajax({
+                    url: statusUrl,
+                    type: 'POST',
+                    async: false,
+                    data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': parent.data('commentbyuserid'), 'CommentContent': context.val(), 'CommentType': 'T', 'Action': 'I' },
+                    success: function () {
+                        context.val("");
+                    }
+                });
+            }
+        })
+    });
+   
 });
 
 function getCookie(cname) {
@@ -92,7 +93,8 @@ function getCookie(cname) {
 }
 
 function postStatus(event) {
-    if (event.type == 'click' || (event.type == 'keyup' && event.key == 'Enter')) {
+    
+    if (event.type == 'click' || (event.type == 'keydown' && event.key == 'Enter')) {
         
         var statusUrl = baseUrl + "Status/SaveStatus";
         //var params = $('#statusInput textarea :input').serialize();

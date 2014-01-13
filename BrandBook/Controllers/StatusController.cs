@@ -34,10 +34,10 @@ namespace BrandBook.Controllers
             statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
             statusUpdateModel.Comments = new List<CommentModel>();
             statusUpdateModel.Likes = new List<LikeModel>();
-            List<StatusUpdateModel> statusList = new List<StatusUpdateModel>();
-            statusList.Add(statusUpdateModel);
+            //List<StatusUpdateModel> statusList = new List<StatusUpdateModel>();
+            //statusList.Add(statusUpdateModel);
             
-            var viewString = View("GetStatusList", statusList).Capture(this.ControllerContext);
+            var viewString = View("StatusPartial", statusUpdateModel).Capture(this.ControllerContext);
             var result= new JsonResult
             {
                 
