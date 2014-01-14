@@ -123,6 +123,11 @@ h5, h6
     margin-top: 8px;
 }
 
+#header, #Content {
+width:100%;
+    min-width:800px;
+}
+
 #header
 {
     /*width: 1280px;*/
@@ -1462,7 +1467,21 @@ input[type="radio"], input[type="checkbox"] {
     vertical-align: inherit;
 }
 
+/**********************Comments****************/
+.StatusCommentWrapper {
+    margin-left: 54px;
+}
+img.commentUserImage {
+width:32px;
+height:32px;
+}
 
+.StatusComment textarea {
+   font-size: 8pt;
+    height: 27px;
+    resize: none;
+    width: 413px;
+}
 
 /*********************General Settings************************/
 

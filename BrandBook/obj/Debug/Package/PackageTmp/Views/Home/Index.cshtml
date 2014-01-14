@@ -8,65 +8,65 @@
 <div id="loginContent" class="clearfix">
     @{
         
-        if (Request.Cookies[".ASPXAUTH"]!=null)
+        if (Request.Cookies[".ASPXAUTH"] != null)
         {
-        string autheticCookieVal=Request.Cookies[FormsAuthentication.FormsCookieName].Value;
-        
+            string autheticCookieVal = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
+
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(autheticCookieVal);
-            if(!ticket.Expired)
+            if (!ticket.Expired)
             {
-                <script type="text/javascript">
-                    $("#loginContent").addClass('Shrink')
-            </script> 
+        <script type="text/javascript">
+            $("#loginContent").addClass('Shrink')
+        </script> 
             }
         }
-        }
+    }
     <form id="frmSignUp">
-        <div id="divSignUp" class="float-left border" >
+        <div id="divSignUp" class="float-left border">
             <div class="legend">Registration Form</div>
             <fieldset>
                 <legend>Registration Form</legend>
                 <ul class="list-unstyled">
                     <li>
-                        
+
                         @Html.TextBox("FirstName", null, new { @class = "form-control", placeholder = "First Name", style = "width:176px;display:inline" })
-                        @Html.ValidationMessageFor(m=>m.FirstName)
-                        @Html.TextBox("LastName", null, new { @class = "form-control", placeholder = "Last Name", style = "width:170px;display:inline" })  
-                        @Html.ValidationMessageFor(m=>m.LastName)
-                        
-                       
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                        @Html.TextBox("LastName", null, new { @class = "form-control", placeholder = "Last Name", style = "width:170px;display:inline" })
+                        @Html.ValidationMessageFor(m => m.LastName)
+
+
                     </li>
                     <li>
                         @*@Html.Label("User Name")*@
                         @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
-                        @Html.ValidationMessageFor(m=>m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.Password("Password", null, new { @class = "form-control", placeholder = "Password" })
-                        @Html.ValidationMessageFor(m=>m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
                     </li>
                     <li>
                         @*@Html.Label("Confirm Password")*@
                         @Html.Password("ConfirmPassword", null, new { @class = "form-control", placeholder = "Confirm Password" })
-                        @Html.ValidationMessageFor(m=>m.ConfirmPassword)
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.TextBox("Email", null, new { @class = "form-control", placeholder = "Email Address" })
-                        @Html.ValidationMessageFor(m=>m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
                     </li>
                     <li>
                         @*@Html.Label("Password")*@
                         @Html.TextBox("Designation", null, new { @class = "form-control", placeholder = "Designation" })
-                        @Html.ValidationMessageFor(m=>m.Designation)
+                        @Html.ValidationMessageFor(m => m.Designation)
                     </li>
                     <li>
                         <div class="birthday-wrapper ">
                             <div class="column birthday-fields-wrapper">
                                 <div class="column ">
-                                <label class="birthday-label ">Birthday</label>
-                            </div>
+                                    <label class="birthday-label ">Birthday</label>
+                                </div>
                                 <div class="column birthday-fields">
                                     <div aria-hidden="true" class="birthday-drop-down">Month</div>
                                     <div class="arrow-container">
@@ -93,7 +93,7 @@
                                     <div class="arrow-container">
                                         <div class="bottom-dd-arrow"></div>
                                     </div>
-                                    <select data-control="birthday-drop-down"   id="day" name="dd">
+                                    <select data-control="birthday-drop-down" id="day" name="dd">
                                         <option value="">Day</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -133,7 +133,7 @@
                                     <div class="arrow-container">
                                         <div class="bottom-dd-arrow"></div>
                                     </div>
-                                    <select data-control="birthday-drop-down"   id="year" name="yyyy">
+                                    <select data-control="birthday-drop-down" id="year" name="yyyy">
                                         <option value="">Year</option>
                                         <option value="2013">2013</option>
                                         <option value="2012">2012</option>
@@ -277,70 +277,71 @@
                                     $("#DateOfBirth").val($('#month').val() + '/' + $('#day').val() + '/' + $('#year').val());
                                 })
                             </script>
-                            @Html.TextBox("DateOfBirth", null, new {@class="form-control"})
+                            @Html.TextBox("DateOfBirth", null, new { @class = "form-control" })
                         </div>
 
-                        @Html.ValidationMessageFor(m=>m.DateOfBirth)
-                        
+                        @Html.ValidationMessageFor(m => m.DateOfBirth)
+
                     </li>
                     <li>
                         @Html.RadioButton("Gender", "Male")Male
                         @Html.RadioButton("Gender", "Female")Female<br />
-                        @Html.ValidationMessageFor(m=>m.Gender)
+                        @Html.ValidationMessageFor(m => m.Gender)
                     </li>
                 </ul>
                 <input type="button" class="btn btn-info" value="Register" id="btnRegister" />
                 <div class="validationSummaryWrapper">
-                @*@Html.ValidationSummary()*@
-            </div>
+                    @*@Html.ValidationSummary()*@
+                </div>
             </fieldset>
             <div class="signup-loading-overlay hide-loader ">
             </div>
             <div class="signup-loader hide-loader">
-                    <img src="~/Content/themes/base/images/loader-circle-ball.gif" /> Processing....
+                <img src="~/Content/themes/base/images/loader-circle-ball.gif" />
+                Processing....
             </div>
             <div class="signup-message-wrapper">
                 <h1 class="message-header"></h1>
                 <div class="message-body">
                     <label></label>
-                        <div class="ProceedSuccess">
-                            <input type="button" class="btn proceed" onclick="proceed()" value="Continue" /><img src="~/Content/themes/base/images/next.png" />
-                        </div>
-                        <div class="ProceedFail">
-                            <img src="~/Content/themes/base/images/previous.png" />
-                            <input type="button" class="btn proceed" onclick="proceed()" value="Back" />
-                        </div>
-                 </div>
+                    <div class="ProceedSuccess">
+                        <input type="button" class="btn proceed" onclick="proceed()" value="Continue" /><img src="~/Content/themes/base/images/next.png" />
+                    </div>
+                    <div class="ProceedFail">
+                        <img src="~/Content/themes/base/images/previous.png" />
+                        <input type="button" class="btn proceed" onclick="proceed()" value="Back" />
+                    </div>
+                </div>
             </div>
         </div>
     </form>
     <form id="frmLogin">
-    <div id="divLogin" class="float-left border">
-        <div class="legend">Log in Form</div>
-        <fieldset>
-            <legend>Log in Form</legend>
-            <ul class="list-unstyled">
-                <li>
-                    @Html.TextBox("UserName",null,new {@class = "form-control", placeholder = "User Name" })
-                   
-                </li>
-                <li>
-                   
-                    @Html.Password("Password", null, new {@class = "form-control", placeholder = "Password" })
-                    
-                </li>
-                <li>
-                    @Html.CheckBox("RememberMe")
-                    @Html.Label("Remember Me", new { @class = "checkbox" })
-                </li>
-            </ul>
-            <input type="button" class="btn btn-info" value="Log in" id="btnLogin" />
-            <div class="loginErrorMsg hide">
-                * Username or password is incorrect.
-            </div>
-        </fieldset>
-    </div>
-</form>
+        <div id="divLogin" class="float-left border">
+            <div class="legend">Log in Form</div>
+            <fieldset>
+                <legend>Log in Form</legend>
+                <ul class="list-unstyled">
+                    <li>
+                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
+
+                    </li>
+                    <li>
+
+                        @Html.Password("Password", null, new { @class = "form-control", placeholder = "Password" })
+
+                    </li>
+                    <li>
+                        @Html.CheckBox("RememberMe")
+                        @Html.Label("Remember Me", new { @class = "checkbox" })
+                    </li>
+                </ul>
+                <input type="button" class="btn btn-info" value="Log in" id="btnLogin" />
+                <div class="loginErrorMsg hide">
+                    * Username or password is incorrect.
+                </div>
+            </fieldset>
+        </div>
+    </form>
 </div>
 <div id="divMain">
     <div id="content">
@@ -354,35 +355,46 @@
         <div id="my-tab-content" class="tab-content">
             <div class="tab-pane active" id="Home">
                 <div id="StatusMain">
-
                 </div>
-                
+
             </div>
             <div class="tab-pane" id="Profile">
-                
             </div>
             <div class="tab-pane" id="Photo">
-                
             </div>
             <div class="tab-pane" id="Option">
-                
             </div>
             <div class="tab-pane" id="Video">
-                
             </div>
         </div>
     </div>
 </div>
- <div class="LogOutModalWrapper">
- </div>
-        <div class="logOutMessageModal">
-                <div class="header">
-                    <label>User Not Logged In</label>
-                </div>
-                <div class="Message-Content">
-                    <label class="Message">Please log in to continue.</label>
-                    <div class="MessgeBtn">
-                        <input class="btn-submit" type="button" value="Log in" />
-                    </div>
-                </div>
-            </div>
+<div class="LogOutModalWrapper">
+</div>
+<div class="logOutMessageModal">
+    <div class="header">
+        <label>User Not Logged In</label>
+    </div>
+    <div class="Message-Content">
+        <label class="Message">Please log in to continue.</label>
+        <div class="MessgeBtn">
+            <a href="~/Models/">~/Models/</a>
+            <input class="btn-submit" type="button" value="Log in" />
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#StatusMain").on('focus', '#txtStatusInput', function () {
+        $("#statusInput").children(".PostStatus").addClass('Expand').removeClass('Shrink');
+    })
+</script>
+<script type="text/javascript" src='@Url.Content("~/Scripts/SignalRCallback/callback.js")'></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#StatusMain').on('click', '.aComment', function () {
+            $(this).parent().parent()
+            .children('div.StatusCommentWrapper').removeClass('hide');
+        });
+    });
+</script>
+

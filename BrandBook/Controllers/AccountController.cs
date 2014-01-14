@@ -128,25 +128,27 @@ namespace BrandBook.Controllers
         {
             Dictionary<string, bool> is_LoggedIn = new Dictionary<string,bool>();
             
-            if (HttpContext.Request.Cookies[".ASPXAUTH"] == null)
+            //if (CookieManager.GetCookie(".ASPXAUTH") == null)
+            if (Request.Cookies[FormsAuthentication.FormsCookieName]==null)
             {
                 is_LoggedIn.Add("loggedIn", false);
-                HttpContext.Response.Cookies["UserID"].Value = "";
+                CookieManager.RemoveAllCookies();
             }
+             
             else
             {
-                string autheticCookieVal = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
-                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(autheticCookieVal);
-                if (!ticket.Expired)
-                {
+                //string autheticCookieVal = Request.Cookies[FormsAuthentication.FormsCookieName].Value;
+                //FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(autheticCookieVal);
+                //if (!ticket.Expired)
+                //{
                     
-                    is_LoggedIn.Add("loggedIn", true);
-                }
-                else{
-                    is_LoggedIn.Add("loggedIn", false);
-                    HttpContext.Response.Cookies["UserID"].Value = "";
-                }
-                
+                //    is_LoggedIn.Add("loggedIn", true);
+                //}
+                //else{
+                //    is_LoggedIn.Add("loggedIn", false);
+                //    HttpContext.Response.Cookies["UserID"].Value = "";
+                //}
+                is_LoggedIn.Add("loggedIn", true);
             }
             
 

@@ -378,12 +378,13 @@
     <div class="Message-Content">
         <label class="Message">Please log in to continue.</label>
         <div class="MessgeBtn">
+            <a href="~/Models/">~/Models/</a>
             <input class="btn-submit" type="button" value="Log in" />
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    $("#txtStatusInput").on('focus', function () {
+    $("#StatusMain").on('focus', '#txtStatusInput', function () {
         $("#statusInput").children(".PostStatus").addClass('Expand').removeClass('Shrink');
     })
 </script>

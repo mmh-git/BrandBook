@@ -123,6 +123,11 @@ h5, h6
     margin-top: 8px;
 }
 
+#header, #Content {
+width:100%;
+    min-width:800px;
+}
+
 #header
 {
     /*width: 1280px;*/
