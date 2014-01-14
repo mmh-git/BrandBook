@@ -107,12 +107,12 @@ userModel = _biz.GetUserDetails(userModel);
                     }
                     else
                     {
-                        <div class="StatusCommentWrapper">
-                        <div class="StatusComment userComment hide" data-statusid="@Model.StatusID" data-commentbyuserid="@userModel.UserDetailsID">
+                        <div class="StatusCommentWrapper hide">
+                            <div class="StatusComment userComment" data-statusid="@Model.StatusID" data-commentbyuserid="@userModel.UserDetailsID">
                                     <img  src="@Url.Content(@userModel.ProfilePicUrl)" class="commentUserImage"/>
                                     <textarea placeholder="Place a comment" class="txtComment"></textarea>
                             </div>
-                            </div>
+                        </div>
                     }
                 </div>
 }

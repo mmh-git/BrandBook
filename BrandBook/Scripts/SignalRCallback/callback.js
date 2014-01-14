@@ -1,4 +1,4 @@
-﻿$(window).ready(function () {
+﻿$(document).ready(function () {
     var status = $.connection.statusHub;
     var like = $.connection.likeHub;
     var comment = $.connection.commentHub;
@@ -44,13 +44,16 @@
     }
     comment.client.GetComment = function (result)
     {
-        $('#StatusMain #s' + result.Data.commentModel.StatusID + '  .userComment').prepend(result.Data.html).parent().removeClass('hide');
+        //$('#StatusMain #s' + result.Data.commentModel.StatusID + '  .userComment').prepend(result.Data.html).parent().removeClass('hide');
+        $('.userComment').filter(function () {
+            return $(this).data('statusid') == result.Data.commentModel.StatusID;
+        }).before(result.Data.html).parent().removeClass('hide');
     }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
-        $("#StatusMain #btnPostStatus").on('click', postStatus);
-        $('#StatusMain #txtStatusInput').on('keydown', postStatus);
-        $('#StatusMain .aLike').on("click", function (event) {
+        $("#StatusMain").on('click',"#btnPostStatus", postStatus);
+        $('#StatusMain').on('keydown', "#txtStatusInput", postStatus);
+        $('#StatusMain').on("click", ".aLike", function (event) {
             var context = $(this);
             event.preventDefault();
             var likeUrl = baseUrl + "Like/SaveLike";
@@ -61,7 +64,7 @@
                 data: { 'LikedContentID': context.data("statusid"), 'LikedContentType': context.data("liketype") }
             });
         });
-        $('#StatusMain .StatusComment').children('textarea').on('keydown', function (event) {
+        $('#StatusMain').on('keydown', '.StatusComment textarea', function (event) {
             if (event.keyCode == 13) {
                 var context = $(this);
                 var parent = context.parent();

@@ -136,17 +136,3 @@
 
 <!--<script type="text/javascript" src='@Url.Content("~/Scripts/status/status.js")'></script>
 <script type="text/javascript" src='@Url.Content("~/Scripts/Like/like.js")'></script> -->
-<script type="text/javascript" src='@Url.Content("~/Scripts/SignalRCallback/callback.js")'></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        //$('textarea').on('keyup', function () {
-        //    $(this).css('height', '100%');
-        //});
-
-        $('#StatusMain .aComment').on('click', function () {
-
-            $(this).parent().parent()
-            .children('div.StatusCommentWrapper').children('.StatusComment').removeClass('hide');
-        });
-    });
-</script>
