@@ -1,0 +1,119 @@
+﻿@model BrandBookModel.StatusUpdateModel
+@using BrandBookModel
+@using BrandBookBiz
+@using BrandBook.Helper;
+@{
+    Layout = null;
+string sid = "s" + @Model.StatusID;
+UserModel userModel = CookieManager.ReloadSessionFromCookie();
+BrandBookFacadeBiz _biz = new BrandBookFacadeBiz();
+userModel = _biz.GetUserDetails(userModel);
+                <div class="statusWrapper" id='@sid'>
+                    <div class="statusProfPicWrapper">
+                    <img id="@Model.PicID" src='@Url.Content(@Model.ProPicUrl)' class="statusProfilePic"/>
+                        </div>
+                    <h1><a href="#">@Model.FullName</a>
+                        <div class="statusContent">
+                        @if (Model.StatusType == "T")
+                        {
+                            @Model.StatusContent;
+                        }
+                        else if (Model.StatusType == "I")
+                        {
+                            <img src='@Url.Content(@Model.StatusContent)' class="statuImg" />
+                        }
+                    </div>
+                    </h1>
+                    
+                    
+                    @if (Model.Likes.Count > 0)
+                    {
+                        if (Model.Likes.Where(l => l.LikedByUserID == userModel.UserDetailsID).Count() > 0)
+                        {
+                            <div class="LikeCommentWrapper">
+                                <a class="aLike" href="#" data-statusid='@Model.StatusID'
+                                    data-liketype="S">Unlike</a>
+                                <a class="aComment" href="#">Comment</a>
+                            </div>
+                            <div class="likeStatus">
+                                @{
+                                    if(@Model.Likes.Count==1)
+                                    {
+                                        <a class="likemsg" href="#">You </a><span>like this</span>
+                                    }
+                                    else
+                                    {
+                                        <a class="likemsg" href="#">@Model.Likes.Count people </a><span>like this</span>
+                                    }
+                                 }
+                            </div>
+                        }
+                        else
+                        {
+                            
+                          <div class="LikeCommentWrapper">
+                                <a class="aLike" href="#" data-statusid='@Model.StatusID'  data-liketype="S">Like</a>
+                                <a href="#" class="aComment">Comment</a>
+                          </div>
+                          <div class="likeStatus">
+                                @{
+                                    if(Model.Likes.Count==1)
+                                    {
+                                        <a class="likemsg" href="#">@Model.Likes[0].LikedByUserFullName </a><span>likes this</span>
+                                    }
+                                    else
+                                    {
+                                        <a class="likemsg" href="#">@Model.Likes.Count people </a><span>like this</span>                                                                       
+                                    }
+                                                                                                       
+                                                                   
+                                }
+                          </div>  
+                        }
+                    }
+                    else
+                    {
+                        <div class="LikeCommentWrapper">
+                            <a class="aLike" href="#" data-statusid='@Model.StatusID'  data-liketype="S">Like</a>
+                            <a class="aComment" href="#">Comment</a>
+                        </div>
+                        <div class="likeStatus hide">
+                            <a class="likemsg" href="#"></a><span>likes this</span>
+                        </div>  
+                    }
+                    @if (Model.Comments.Count > 0)
+                    {
+                        <div class="StatusCommentWrapper">
+                            @foreach (CommentModel ModelComment in Model.Comments)
+                            {
+                                <div class="StatusComment" data-statusid="@Model.StatusID" data-commentid="@ModelComment.CommentID" data-commentbyuserid="@ModelComment.CommentedByUserID">
+                                    <img id="@ModelComment.CommentedByUserProPicID" src="@Url.Content(@ModelComment.CommentedByUserProPicUrl)" class="commentUserImage"/>
+                                    <a href="#">@ModelComment.CommentedByUserFullName</a>
+                                    <span class="CommentContent">@ModelComment.CommentContent</span>
+                                    <div class="likeOnCommentWraper">
+                                        <a href="#">Like</a>
+                                            @if (@ModelComment.Likes.Count > 0)
+                                            {
+                                                <img src='@Url.Content("~/Content/themes/base/images/like.jpg")'> @ModelComment.Likes.Count 
+                                            }
+                                     </div>
+                                </div>
+                            }
+                            <div  class="StatusComment userComment" data-statusid="@Model.StatusID" data-commentbyuserid="@userModel.UserDetailsID">
+                                    <img  src="@Url.Content(@userModel.ProfilePicUrl)" class="commentUserImage"/>
+                                    <textarea placeholder="Place a comment" class="txtComment"></textarea>
+                            </div>
+                           </div>
+                    }
+                    else
+                    {
+                        <div class="StatusCommentWrapper hide">
+                            <div class="StatusComment userComment" data-statusid="@Model.StatusID" data-commentbyuserid="@userModel.UserDetailsID">
+                                    <img  src="@Url.Content(@userModel.ProfilePicUrl)" class="commentUserImage"/>
+                                    <textarea placeholder="Place a comment" class="txtComment"></textarea>
+                            </div>
+                        </div>
+                    }
+                </div>
+}
+

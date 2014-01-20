@@ -48,6 +48,8 @@ namespace BrandBook
                         "~/Content/themes/base/jquery.ui.theme.css",
                         "~/Content/jquery.pageslide.css"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include("~/Content/kendo/kendo.common.min.css",
+                "~/Content/kendo/kendo.default.min.css"));
         }
     }
 }

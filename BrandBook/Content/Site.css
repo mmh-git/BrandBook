@@ -1489,3 +1489,87 @@ height:32px;
 {
     min-height:800px;
 }
+
+/**********************Upload Photos*****************/
+.k-dropzone
+{
+    padding:0;
+}
+.k-dropzone > em
+{
+    display:none;
+}
+.k-upload-button
+{
+    padding:0;
+    width:99%;
+    margin:2px;
+    height:26px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    cursor: pointer;
+    /*background-image: linear-gradient(to bottom, #5BC0DE 0%, #005B82 100%);*/
+    background-image:linear-gradient(to bottom, #ACC8E6 0%, #005B82 100%);
+    color:#fff;
+    font-weight:800;
+}
+
+.k-upload-button:hover
+{
+    background-image:linear-gradient(to bottom, #005B82 0%, #ACC8E6 100%);
+}
+.k-upload-status-total, .k-upload-files,k-reset
+{
+    display:none!important;
+}
+.progressBar
+{
+   background-color: #0618A4;
+    height: 7px;
+    margin: 0.9px;
+    width: 0%;
+}
+
+.progressBarWrapper
+{
+    background-color: #FFFFFF;
+    border: 1px solid #C8C8C8;
+    bottom: 6px;
+    height: 11px;
+    margin-left: 30px;
+    position: absolute;
+    width: 70%;
+}
+.statusImg
+{
+     background-color: #E9F2F6;
+    
+    float: left;
+    height: 118px;
+    width: 50%;
+    position: relative;
+}
+.ImgDescWrapper 
+{
+    height: 118px;
+    margin-left: 50%;
+    width: 50%;
+}
+#txtImgDesc
+{
+    width:100%;
+    height:100%;
+    margin:0;padding:0;
+}
+
+.imgStatus
+{
+    width:100%;
+    position:relative;
+}
+
+.statusImg > img {
+    height: 87%;
+    margin: 10px 0 0 49px;
+    width: 53%;
+}

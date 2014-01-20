@@ -7,9 +7,30 @@
         <img id="@Model.ProfilePicID" src="@Url.Content(@Model.ProfilePicUrl)" class="bbxWelcomeBoxImg Img" /><span>@Model.FirstName &nbsp;@Model.LastName</span>
     </div>
     <div class="statusList-middle float-left">
+        <div>
+            <a href="#" id="aTxtStatus">Update Status</a>&nbsp;&nbsp;
+            <a href="#" id="aImgStatus">Upload Photos</a><br />
+        </div>
         <div class="statusInput" id="statusInput">
-            <div><textarea  id="txtStatusInput" name="StatusContent" placeholder="Whats on your mind?"/>
+            <div id="txtStatusWrapper">
+                <textarea  id="txtStatusInput" name="StatusContent" placeholder="Whats on your mind?"/>
                 <input type="hidden" id="StatusType" name="StatusType" value="T" />
+            </div>
+            <div id="imgStatusWrapper" class="hide">
+                <div class="imgStatus hide">
+                    <div class="statusImg">
+                        <img src=""/>
+                        <div class="progressBarWrapper hide">
+                            <div class="progressBar"></div>
+                        </div>
+                    </div>
+                    <div class="ImgDescWrapper">
+                        <textarea id="txtImgDesc" placeholder="What's the story..."></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input name="files" id="files" type="file" /> 
+                </div>
             </div>
             <div class="PostStatus Shrink">
                 <input type="button" id="btnPostStatus"  value="Post"/>
@@ -18,3 +39,51 @@
         
        @Html.Action("GetStatusList","Status")
     </div>
+<script type="text/javascript">
+    $('#StatusMain').on('click', '#aImgStatus', function () {
+        $("#txtStatusWrapper").addClass('hide');
+        $('#imgStatusWrapper').removeClass('hide');
+    })
+</script>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#files").kendoUpload({
+                        async: {
+                            saveUrl: baseUrl + "Image/SaveImage",
+                            removeUrl: "remove",
+                            autoUpload: true
+                        },
+                        success: onSuccess,
+                        progress: onProgress,
+                        select: onSelect
+
+                    });
+
+                    $("#StatusMain").on("click", "#files", function () {
+                        $(" .k-upload-button").addClass("hide");
+                        $(".imgStatus").removeClass("hide");
+                    })
+
+                });
+                function onProgress(e) {
+                    $('.progressBar').css('width', e.percentComplete + '%');
+                }
+
+                function onSelect() {
+                    $(".progressBarWrapper").removeClass("hide");
+                }
+
+                function onSuccess(result) {
+                    // console.log(response);
+                    alert(result.response.response);
+                    $('.statusImg').children('img').attr('src', result.response.response);
+                    $('.PostStatus').removeClass('Shrink');
+                    $('.progressBarWrapper').addClass('hide');
+                    
+                    
+
+                }
+</script>
+        
+    
