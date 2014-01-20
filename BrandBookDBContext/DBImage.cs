@@ -33,7 +33,7 @@ namespace BrandBookDBContext
 
         #endregion Constructor
 
-        #region DBStatus public method
+        #region DBImage public method
 
         public DataSet GetStatusList(ImageModel imageModel)
         {

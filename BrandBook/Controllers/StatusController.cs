@@ -9,6 +9,7 @@ using System.Web.Security;
 using BrandBook.Hubs;
 using Microsoft.AspNet.SignalR;
 using BrandBook.Helper;
+using System.IO;
 namespace BrandBook.Controllers
 {
     public class StatusController : Controller
@@ -31,7 +32,29 @@ namespace BrandBook.Controllers
         public void SaveStatus(StatusUpdateModel statusUpdateModel)
         {
             BrandBookFacadeBiz _bizContext = new BrandBookFacadeBiz();
-            statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
+            if (statusUpdateModel.StatusType == "I")
+            {
+                ImageModel imgModel = new ImageModel
+                {
+                    ImageUrl ="~/Content/UplodaFiles/"+statusUpdateModel.fileName,
+                    ImgDesc = statusUpdateModel.fileDesc,
+                    Action = "I",
+                    UserDetailsID = CookieManager.ReloadSessionFromCookie().UserDetailsID
+                };
+
+                imgModel = _bizContext.SaveImage(imgModel);
+                if (imgModel.ImageID > 0)
+                {
+                    statusUpdateModel.StatusContent = imgModel.ImageUrl;
+                    statusUpdateModel.fileDesc = imgModel.ImgDesc;
+                    statusUpdateModel.fileName = imgModel.ImageUrl;
+                    statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
+                }
+            }
+            else
+            {
+                statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
+            }
             statusUpdateModel.Comments = new List<CommentModel>();
             statusUpdateModel.Likes = new List<LikeModel>();
             //List<StatusUpdateModel> statusList = new List<StatusUpdateModel>();

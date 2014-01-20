@@ -26,7 +26,7 @@ namespace BrandBook.Controllers
                 physicalPath = Path.Combine(Server.MapPath("~/Content/Images/UserImages"), fileName);
                 file.SaveAs(physicalPath);
             }
-            return new JsonResult { Data = new { response = Url.Content("~/Content/Images/UserImages/" + fileName), JsonRequestBehavior.AllowGet } };
+            return new JsonResult { Data = new { response = Url.Content("~/Content/Images/UserImages/" + fileName),fileName=fileName, JsonRequestBehavior.AllowGet } };
         }
     }
 }

@@ -7,11 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         @Scripts.Render("~/bundles/modernizr")
-
+        <link href='@Url.Content("~/Content/kendo.common.min.css")' type="text/css" rel="stylesheet"/>
+        <link href='@Url.Content("~/Content/kendo.default.min.css")' type="text/css" rel="stylesheet" />
         @Styles.Render("~/Content/themes/base/css")
-        
+       @* @Styles.Render("~/Content/kendo/css")*@
         @Styles.Render("~/Content/css")
-
+        
 
         @*<script type="text/javascript" src='@Scripts.Url("~/bundles/jquery")'></script>*@
         <script type="text/javascript" src='@Scripts.Url("~/Scripts/jquery-2.0.3.js")'></script>
@@ -30,6 +31,7 @@
         <script type="text/javascript" src='@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")'></script>
         <script type="text/javascript" src='@Url.Content("~/Scripts/underscore.js")'></script>
         <script type="text/javascript" src='@Url.Content("~/Scripts/backbone.js")'></script>
+        <script type="text/javascript" src='@Url.Content("~/Scripts/kendo.all.min.js")'></script>
        
        
         <script type="text/javascript">

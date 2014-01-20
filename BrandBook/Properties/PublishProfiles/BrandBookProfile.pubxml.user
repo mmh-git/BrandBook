@@ -14,81 +14,81 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2013 11:51:16</publishTime>
     </File>
     <File Include="bin/BrandBook.dll">
-      <publishTime>01/14/2014 15:03:34</publishTime>
+      <publishTime>01/08/2014 12:05:43</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
-      <publishTime>01/14/2014 15:03:33</publishTime>
+      <publishTime>01/08/2014 12:05:43</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.dll">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.pdb">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.dll">
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.pdb">
       <publishTime>12/29/2013 17:32:04</publishTime>
-      <publishTime>01/14/2014 15:03:30</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
-      <publishTime>01/14/2014 15:03:33</publishTime>
+      <publishTime>01/08/2014 12:05:43</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.dll">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.pdb">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.dll">
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.pdb">
       <publishTime>12/28/2013 21:37:15</publishTime>
-      <publishTime>01/14/2014 15:03:30</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
-      <publishTime>01/14/2014 15:03:33</publishTime>
+      <publishTime>01/08/2014 12:05:43</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.dll">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.pdb">
       <publishTime>12/29/2013 18:45:57</publishTime>
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBook.pdb">
-      <publishTime>01/14/2014 15:03:33</publishTime>
+      <publishTime>01/08/2014 12:05:43</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.dll">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookBiz.pdb">
-      <publishTime>01/14/2014 15:03:32</publishTime>
+      <publishTime>01/08/2014 12:05:41</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.dll">
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookDBContext.pdb">
-      <publishTime>01/14/2014 15:03:30</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookModel.dll">
-      <publishTime>01/14/2014 15:03:29</publishTime>
+      <publishTime>01/07/2014 18:16:39</publishTime>
     </File>
     <File Include="bin/BrandBookModel.pdb">
-      <publishTime>01/14/2014 15:03:29</publishTime>
+      <publishTime>01/07/2014 18:16:39</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.dll">
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
       <publishTime>12/29/2013 17:32:05</publishTime>
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/BrandBookRepository.pdb">
       <publishTime>12/29/2013 17:32:05</publishTime>
-      <publishTime>01/14/2014 15:03:31</publishTime>
+      <publishTime>01/08/2014 12:00:33</publishTime>
     </File>
     <File Include="bin/DotNetOpenAuth.AspNet.dll">
       <publishTime>12/30/2013 11:51:14</publishTime>
@@ -205,7 +205,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 18:14:32</publishTime>
       <publishTime>12/29/2013 02:47:47</publishTime>
       <publishTime>12/29/2013 18:59:09</publishTime>
-      <publishTime>01/13/2014 12:24:23</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Content/themes/base/images/animated-overlay.gif">
       <publishTime>12/30/2013 11:51:04</publishTime>
@@ -478,7 +478,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2013 15:06:22</publishTime>
     </File>
     <File Include="Scripts/Authetication/Authentication.js">
-      <publishTime>01/13/2014 13:03:23</publishTime>
+      <publishTime>12/30/2013 11:51:05</publishTime>
     </File>
     <File Include="Scripts/backbone.js">
       <publishTime>12/30/2013 11:51:05</publishTime>
@@ -503,9 +503,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/jquery-2.0.3.min.map">
       <publishTime>12/30/2013 11:51:06</publishTime>
-    </File>
-    <File Include="Scripts/jquery-migrate-1.1.0.min.js">
-      <publishTime>01/08/2014 14:23:19</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.10.3.js">
       <publishTime>12/30/2013 11:51:06</publishTime>
@@ -556,7 +553,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
     <File Include="Scripts/Like/like.js">
-      <publishTime>01/09/2014 15:53:11</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.5.3.js">
       <publishTime>12/30/2013 11:51:07</publishTime>
@@ -565,9 +562,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 12:41:41</publishTime>
       <publishTime>12/29/2013 18:26:12</publishTime>
       <publishTime>12/30/2013 11:51:05</publishTime>
-    </File>
-    <File Include="Scripts/SignalRCallback/callback.js">
-      <publishTime>01/14/2014 14:38:50</publishTime>
     </File>
     <File Include="Scripts/status/status.js">
       <publishTime>01/08/2014 12:00:32</publishTime>
@@ -579,7 +573,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
     <File Include="Scripts/user/index.js">
-      <publishTime>01/08/2014 14:36:21</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Scripts/_references.js">
       <publishTime>12/30/2013 11:51:05</publishTime>
@@ -611,9 +605,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/_SetPasswordPartial.cshtml">
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
-    <File Include="Views/Comment/CommentPartial.cshtml">
-      <publishTime>01/13/2014 12:24:23</publishTime>
-    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
@@ -624,25 +615,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 14:21:14</publishTime>
       <publishTime>12/29/2013 03:44:34</publishTime>
       <publishTime>12/29/2013 18:26:12</publishTime>
-      <publishTime>01/14/2014 14:38:50</publishTime>
+      <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/14/2014 14:38:50</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>12/30/2013 11:51:07</publishTime>
     </File>
     <File Include="Views/Status/GetStatusList.cshtml">
-      <publishTime>01/14/2014 14:38:50</publishTime>
-    </File>
-    <File Include="Views/Status/StatusPartial.cshtml">
-      <publishTime>01/14/2014 14:38:50</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Views/User/UserPartial.cshtml">
-      <publishTime>01/14/2014 14:38:50</publishTime>
+      <publishTime>01/08/2014 12:00:32</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/30/2013 11:51:07</publishTime>
@@ -655,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2013 03:44:46</publishTime>
       <publishTime>12/29/2013 18:59:19</publishTime>
       <publishTime>12/29/2013 19:38:29</publishTime>
-      <publishTime>01/14/2014 15:50:31</publishTime>
+      <publishTime>01/08/2014 12:06:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

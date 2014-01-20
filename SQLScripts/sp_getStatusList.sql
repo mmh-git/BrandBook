@@ -23,21 +23,18 @@ union
 select 
 temp.StatusID as StatusID,
 temp.StatusType as StatusType,
-temp.ImageUrl as StatusContent,
+temp.StatusContent as StatusContent,
 temp.createdDate as CreatedDate,
 temp.UserDetailsID as StatusByUserID,
 temp.FirstName+' '+temp.LastName as FullName,
 temp.proPicId as PicID,
 img2.ImageUrl as ProPicUrl
  from 
-(select su.StatusID,su.StatusType,img1.ImageUrl,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
+(select su.StatusID,su.StatusType,su.StatusContent,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
 from StatusUpdate as su
 join
 UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
-join
-Images as img1
-on su.StatusContent=img1.ImageID
 where su.StatusType='I') as temp
 join Images as img2
 on temp.proPicId=img2.ImageID

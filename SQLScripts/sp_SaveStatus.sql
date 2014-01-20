@@ -46,28 +46,29 @@ on ud.proPicId=img.ImageID
 End
 ELSE IF @StatusType='I'
 Begin
-	declare @imageID int
+	/*declare @imageID int
 	insert into Images(ImageUrl,UserDetailsID,CreatedDate)
 	values
 	(@StatusContent,@UserDetailsID,@CreatedDate)
-	select @imageID=@@IDENTITY
+	select @imageID=@@IDENTITY*/
 	
 	insert into StatusUpdate(UserDetailsID,StatusType,StatusContent,createdDate)
-	values(@UserDetailsID,@StatusType,@imageID,@CreatedDate)
+	values(@UserDetailsID,@StatusType,@StatusContent,@CreatedDate)
 	select @StatusID=@@IDENTITY
 	
 	select su.StatusID as StatusID,
 	su.StatusType as StatusType,
-	img1.ImageUrl as StatusContent,
+	--img1.ImageUrl as StatusContent,
+	su.StatusContent as StatusContent,
 	su.createdDate as CreatedDate,
 	su.UserDetailsID as StatusByUserID,
 	ud.FirstName+' '+ud.LastName as FullName,
 	ud.proPicId as PicID,
 	img2.ImageUrl as ProPicUrl from StatusUpdate as su
 	join
-	Images as img1
+	/*Images as img1
 	on su.StatusContent=img1.ImageID
-	join
+	join*/
 	UserDetails as ud
 	on su.UserDetailsID=ud.UserDetailsID
 	join Images as img2

@@ -14,12 +14,13 @@
         <div class="statusInput" id="statusInput">
             <div id="txtStatusWrapper">
                 <textarea  id="txtStatusInput" name="StatusContent" placeholder="Whats on your mind?"/>
-                <input type="hidden" id="StatusType" name="StatusType" value="T" />
+                <input type="hidden" id="StatusType"
+                     name="StatusType" value="T" />
             </div>
             <div id="imgStatusWrapper" class="hide">
                 <div class="imgStatus hide">
                     <div class="statusImg">
-                        <img src=""/>
+                        <img src=""/><input type="hidden" id="fileName" value="" />
                         <div class="progressBarWrapper hide">
                             <div class="progressBar"></div>
                         </div>
@@ -43,6 +44,14 @@
     $('#StatusMain').on('click', '#aImgStatus', function () {
         $("#txtStatusWrapper").addClass('hide');
         $('#imgStatusWrapper').removeClass('hide');
+        $('#StatusType').val("I");
+    })
+    $('#StatusMain').on('click', '#aTxtStatus', function () {
+        $("#txtStatusWrapper").removeClass('hide');
+        $('#imgStatusWrapper').removeClass('hide').addClass('hide');
+        $('#StatusType').val("T");
+        $('.PostStatus').removeClass('Shrink');
+        $("#txtStatusInput").focus();
     })
 </script>
 
@@ -76,7 +85,7 @@
 
                 function onSuccess(result) {
                     // console.log(response);
-                    alert(result.response.response);
+                    $("#fileName").val(result.response.fileName)
                     $('.statusImg').children('img').attr('src', result.response.response);
                     $('.PostStatus').removeClass('Shrink');
                     $('.progressBarWrapper').addClass('hide');

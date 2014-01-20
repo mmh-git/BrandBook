@@ -15,9 +15,12 @@
                 url: statusUrl,
                 type: 'POST',
                 async:false,
-                data: { 'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID') },
+                data: {
+                    'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID'),
+                    'fileName': $('#fileName').val(), 'fileDesc': $('#txtImgDesc').val()
+                },
                 success: function () {
-                    $("#txtStatusInput").val("");
+                    resetStatusUploadControl();
                 }
             });
 
@@ -38,4 +41,16 @@ function getCookie(cname)
         if (c.indexOf(name)==0) return c.substring(name.length,c.length);
     }
     return "";
-} 
+}
+
+function resetStatusUploadControl()
+{
+    $('.imgStatusWrapper, .imgStatus, .progressBarWrapper').removeClass('hide').addClass('hide');
+    $('.statusImg').children('img').attr('src', '');
+    $('.PostStatus').removeClass('Shrink').addClass('Shrink');
+    $('#txtStatusWrapper').removeClass('hide');
+    
+    $('#txtImgDesc').val('');
+    $("#txtStatusInput").val("");
+
+}
