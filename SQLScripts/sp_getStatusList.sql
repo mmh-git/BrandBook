@@ -7,6 +7,7 @@ as
 select su.StatusID as StatusID,
 su.StatusType as StatusType,
 su.StatusContent as StatusContent,
+'' as fileDesc,
 su.createdDate as CreatedDate,
 su.UserDetailsID as StatusByUserID,
 ud.FirstName+' '+ud.LastName as FullName,
@@ -23,15 +24,19 @@ union
 select 
 temp.StatusID as StatusID,
 temp.StatusType as StatusType,
-temp.StatusContent as StatusContent,
+temp.ImageUrl as StatusContent,
+temp.ImgDesc as fileDesc,
 temp.createdDate as CreatedDate,
 temp.UserDetailsID as StatusByUserID,
 temp.FirstName+' '+temp.LastName as FullName,
 temp.proPicId as PicID,
 img2.ImageUrl as ProPicUrl
  from 
-(select su.StatusID,su.StatusType,su.StatusContent,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
+(select su.StatusID,su.StatusType,img1.ImageUrl,img1.ImgDesc,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
 from StatusUpdate as su
+join
+Images as img1
+on su.StatusContent=img1.ImageID
 join
 UserDetails as ud
 on su.UserDetailsID=ud.UserDetailsID
@@ -46,6 +51,7 @@ select
 temp.StatusID as StatusID,
 temp.StatusType as StatusType,
 temp.VideoUrl as StatusContent,
+'' as fileDesc,
 temp.createdDate as CreatedDate,
 temp.UserDetailsID as StatusByUserID,
 temp.FirstName+' '+temp.LastName as FullName,

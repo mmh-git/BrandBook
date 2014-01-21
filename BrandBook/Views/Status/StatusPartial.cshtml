@@ -12,19 +12,18 @@ userModel = _biz.GetUserDetails(userModel);
                     <div class="statusProfPicWrapper">
                     <img id="@Model.PicID" src='@Url.Content(@Model.ProPicUrl)' class="statusProfilePic"/>
                         </div>
-                    <h1><a href="#">@Model.FullName</a>
-                        <div class="statusContent">
+                    <h1><a href="#">@Model.FullName</a></h1>
+                    <div class="statusContent">
                         @if (Model.StatusType == "T")
                         {
                             @Model.StatusContent;
                         }
                         else if (Model.StatusType == "I")
                         {
-                            <img src='@Url.Content(@Model.StatusContent)' class="statuImg" />
+                            <span>@Model.fileDesc</span><br />
+                            <img src='@Url.Content(@Model.StatusContent)' data-fileid="@Model.fileID" class="statuImg" />
                         }
                     </div>
-                    </h1>
-                    
                     
                     @if (Model.Likes.Count > 0)
                     {

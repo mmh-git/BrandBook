@@ -33,7 +33,7 @@
                     <input name="files" id="files" type="file" /> 
                 </div>
             </div>
-            <div class="PostStatus Shrink">
+            <div class="PostStatus hide">
                 <input type="button" id="btnPostStatus"  value="Post"/>
             </div>
         </div>
@@ -44,13 +44,17 @@
     $('#StatusMain').on('click', '#aImgStatus', function () {
         $("#txtStatusWrapper").addClass('hide');
         $('#imgStatusWrapper').removeClass('hide');
+        if (!$('.PostStatus').hasClass('hide')) {
+            $('.PostStatus').addClass('hide');
+        }
         $('#StatusType').val("I");
     })
     $('#StatusMain').on('click', '#aTxtStatus', function () {
         $("#txtStatusWrapper").removeClass('hide');
         $('#imgStatusWrapper').removeClass('hide').addClass('hide');
+        
         $('#StatusType').val("T");
-        $('.PostStatus').removeClass('Shrink');
+        $('.PostStatus').removeClass('hide');
         $("#txtStatusInput").focus();
     })
 </script>
@@ -87,11 +91,8 @@
                     // console.log(response);
                     $("#fileName").val(result.response.fileName)
                     $('.statusImg').children('img').attr('src', result.response.response);
-                    $('.PostStatus').removeClass('Shrink');
-                    $('.progressBarWrapper').addClass('hide');
-                    
-                    
-
+                    $('.PostStatus').removeClass('hide');
+                    $('.progressBarWrapper').addClass('hide');   
                 }
 </script>
         

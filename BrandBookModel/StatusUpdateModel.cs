@@ -16,7 +16,7 @@ namespace BrandBookModel
         public string FullName { get; set; }
         public int PicID { get; set; }
         public string ProPicUrl { get; set; }
-        public string fileName { get; set; }
+        public int fileID { get; set; }
         public string fileDesc { get; set; }
         public List<CommentModel> Comments { get; set; }
         public List<LikeModel> Likes { get; set; }

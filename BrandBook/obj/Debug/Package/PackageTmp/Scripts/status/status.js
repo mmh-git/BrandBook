@@ -4,7 +4,7 @@
     {
         $("#divStatus").children('.no-update').detach();
         $("#divStatus").prepend(result.Data.html);
-        $("#statusInput").children(".PostStatus").addClass('Shrink').removeClass('Expand');
+        $("#statusInput").children(".PostStatus").addClass('hide').removeClass('Expand');
     }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
@@ -47,7 +47,7 @@ function resetStatusUploadControl()
 {
     $('.imgStatusWrapper, .imgStatus, .progressBarWrapper').removeClass('hide').addClass('hide');
     $('.statusImg').children('img').attr('src', '');
-    $('.PostStatus').removeClass('Shrink').addClass('Shrink');
+    $('.PostStatus').removeClass('hide').addClass('hide');
     $('#txtStatusWrapper').removeClass('hide');
     
     $('#txtImgDesc').val('');

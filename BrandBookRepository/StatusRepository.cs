@@ -38,6 +38,7 @@ namespace BrandBookRepository
                         StatusID = Convert.ToInt32(dr["StatusID"]),
                         StatusByUserID = Convert.ToInt32(dr["StatusByUserID"]),
                         StatusContent = dr["StatusContent"].ToString(),
+                        fileDesc=dr["fileDesc"].ToString(),
                         StatusType = dr["StatusType"].ToString(),
                         CreatedDate = Convert.ToDateTime(dr["CreatedDate"]),
                         FullName = dr["FullName"].ToString(),

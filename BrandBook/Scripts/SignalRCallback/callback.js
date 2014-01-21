@@ -5,7 +5,7 @@
     status.client.GetNewStatus = function (result) {
         $("#divStatus").children('.no-update').detach();
         $("#divStatus").prepend(result.Data.html);
-        $("#statusInput").children(".PostStatus").addClass('Shrink').removeClass('Expand');
+        $("#statusInput").children(".PostStatus").addClass('hide').removeClass('Expand');
     }
 
     like.client.SaveLikeCallBack = function (result) {
@@ -48,6 +48,7 @@
         $('.userComment').filter(function () {
             return $(this).data('statusid') == result.Data.commentModel.StatusID;
         }).before(result.Data.html).parent().removeClass('hide');
+        $('.userComment').data("commentbyuserid", getCookie("UserDetaisID"));
     }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
@@ -74,9 +75,12 @@
                     url: statusUrl,
                     type: 'POST',
                     async: false,
-                    data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': parent.data('commentbyuserid'), 'CommentContent': context.val(), 'CommentType': 'T', 'Action': 'I' },
+                    data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': /*parent.data('commentbyuserid')*/getCookie("UserDetaisID"), 'CommentContent': context.val(), 'CommentType': 'T', 'Action': 'I' },
                     success: function () {
                         context.val("");
+                    },
+                    complete: function () {
+                        resetStatusUploadControl();
                     }
                 });
             }
@@ -100,16 +104,27 @@ function postStatus(event) {
     if (event.type == 'click' || (event.type == 'keydown' && event.key == 'Enter')) {
         
         var statusUrl = baseUrl + "Status/SaveStatus";
+        var StatusContent = "";
+        if ($('#StatusType').val() == "T")
+        {
+            StatusContent = $("#txtStatusInput").val();
+        }
+        else if ($('#StatusType').val() == "I")
+        {
+            StatusContent = $('.statusImg').children('img').attr('src');
+        }
         //var params = $('#statusInput textarea :input').serialize();
         $.ajax({
             url: statusUrl,
             type: 'POST',
             async: false,
             data: {
-                'StatusContent': $("#txtStatusInput").val(), 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID'),
-                'fileName': $('#fileName').val(), 'fileDesc': $('#txtImgDesc').val()
+                'StatusContent': StatusContent, 'StatusType': $('#StatusType').val(), 'UserID': getCookie('UserID'), 'fileDesc': $('#txtImgDesc').val()
             },
             success: function () {
+                
+            },
+            complete: function () {
                 resetStatusUploadControl();
             }
         });
@@ -117,10 +132,10 @@ function postStatus(event) {
 };
 
 function resetStatusUploadControl() {
-    $('.imgStatusWrapper, .imgStatus, .progressBarWrapper').removeClass('hide').addClass('hide');
+    $('#imgStatusWrapper, .imgStatus, .progressBarWrapper').removeClass('hide').addClass('hide');
     $('.statusImg').children('img').attr('src', '');
-    $('.PostStatus').removeClass('Shrink').addClass('Shrink');
-
+    $('.PostStatus').removeClass('hide').addClass('hide');
+    $('#txtStatusWrapper').removeClass('hide');
     $('#txtImgDesc').val('');
     $("#txtStatusInput").val("");
 

@@ -34,20 +34,22 @@ namespace BrandBook.Controllers
             BrandBookFacadeBiz _bizContext = new BrandBookFacadeBiz();
             if (statusUpdateModel.StatusType == "I")
             {
-                ImageModel imgModel = new ImageModel
-                {
-                    ImageUrl ="~/Content/UplodaFiles/"+statusUpdateModel.fileName,
-                    ImgDesc = statusUpdateModel.fileDesc,
-                    Action = "I",
-                    UserDetailsID = CookieManager.ReloadSessionFromCookie().UserDetailsID
-                };
+                ImageModel imgModel = new ImageModel();
+             
+                    imgModel.ImageUrl ="~/Content/UploadFiles/"+statusUpdateModel.StatusContent.Substring(
+                   statusUpdateModel.StatusContent.LastIndexOf('/')+1);
+                    imgModel.ImgDesc = statusUpdateModel.fileDesc;
+                    imgModel.Action = "I";
+                    imgModel.UserDetailsID = CookieManager.ReloadSessionFromCookie().UserDetailsID;
+             
 
                 imgModel = _bizContext.SaveImage(imgModel);
                 if (imgModel.ImageID > 0)
                 {
-                    statusUpdateModel.StatusContent = imgModel.ImageUrl;
+                    statusUpdateModel.StatusContent = imgModel.ImageID.ToString();
+                    statusUpdateModel.fileID = imgModel.ImageID;
                     statusUpdateModel.fileDesc = imgModel.ImgDesc;
-                    statusUpdateModel.fileName = imgModel.ImageUrl;
+                    statusUpdateModel.StatusContent = imgModel.ImageUrl;
                     statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
                 }
             }

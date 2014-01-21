@@ -7,17 +7,18 @@
         <img id="@Model.ProfilePicID" src="@Url.Content(@Model.ProfilePicUrl)" class="bbxWelcomeBoxImg Img" /><span>@Model.FirstName &nbsp;@Model.LastName</span>
     </div>
     <div class="statusList-middle float-left">
-        <div>
+        <div class="statusInputWrapper" id="statusInputWrapper">
+            <div>
             <a href="#" id="aTxtStatus">Update Status</a>&nbsp;&nbsp;
             <a href="#" id="aImgStatus">Upload Photos</a><br />
         </div>
-        <div class="statusInput" id="statusInput">
-            <div id="txtStatusWrapper">
+            <div class="statusInput" id="statusInput">
+                <div id="txtStatusWrapper">
                 <textarea  id="txtStatusInput" name="StatusContent" placeholder="Whats on your mind?"/>
                 <input type="hidden" id="StatusType"
                      name="StatusType" value="T" />
             </div>
-            <div id="imgStatusWrapper" class="hide">
+                <div id="imgStatusWrapper" class="hide">
                 <div class="imgStatus hide">
                     <div class="statusImg">
                         <img src=""/><input type="hidden" id="fileName" value="" />
@@ -33,8 +34,9 @@
                     <input name="files" id="files" type="file" /> 
                 </div>
             </div>
-            <div class="PostStatus Shrink">
+                <div class="PostStatus hide">
                 <input type="button" id="btnPostStatus"  value="Post"/>
+            </div>
             </div>
         </div>
         
@@ -44,13 +46,17 @@
     $('#StatusMain').on('click', '#aImgStatus', function () {
         $("#txtStatusWrapper").addClass('hide');
         $('#imgStatusWrapper').removeClass('hide');
+        if (!$('.PostStatus').hasClass('hide')) {
+            $('.PostStatus').addClass('hide');
+        }
         $('#StatusType').val("I");
     })
     $('#StatusMain').on('click', '#aTxtStatus', function () {
         $("#txtStatusWrapper").removeClass('hide');
         $('#imgStatusWrapper').removeClass('hide').addClass('hide');
+        
         $('#StatusType').val("T");
-        $('.PostStatus').removeClass('Shrink');
+        $('.PostStatus').removeClass('hide');
         $("#txtStatusInput").focus();
     })
 </script>
@@ -87,11 +93,8 @@
                     // console.log(response);
                     $("#fileName").val(result.response.fileName)
                     $('.statusImg').children('img').attr('src', result.response.response);
-                    $('.PostStatus').removeClass('Shrink');
-                    $('.progressBarWrapper').addClass('hide');
-                    
-                    
-
+                    $('.PostStatus').removeClass('hide');
+                    $('.progressBarWrapper').addClass('hide');   
                 }
 </script>
         

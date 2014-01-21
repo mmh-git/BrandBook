@@ -23,10 +23,10 @@ namespace BrandBook.Controllers
             foreach (var file in files)
             {
                 fileName = file.FileName;
-                physicalPath = Path.Combine(Server.MapPath("~/Content/Images/UserImages"), fileName);
+                physicalPath = Path.Combine(Server.MapPath("~/Content/UploadFiles"), fileName);
                 file.SaveAs(physicalPath);
             }
-            return new JsonResult { Data = new { response = Url.Content("~/Content/Images/UserImages/" + fileName),fileName=fileName, JsonRequestBehavior.AllowGet } };
+            return new JsonResult { Data = new { response = Url.Content("~/Content/UploadFiles/" + fileName), fileName = fileName, JsonRequestBehavior.AllowGet } };
         }
     }
 }

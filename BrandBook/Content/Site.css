@@ -280,7 +280,7 @@ footer
     border-color: #CCCCCC;
     border-style: solid;
     border-width: 0 1px 1px;
-    padding: 50px;
+    /*padding: 50px;*/
     width: 59%;
     min-height: 800px;
     border-radius: 0 0 16px 16px;
@@ -341,10 +341,7 @@ footer
     display: none;
 }
 
-.PostStatus > input
-{
-    margin-left: 454px;
-}
+
 /* login
 ----------------------------------------------------------*/
 #login
@@ -1340,7 +1337,13 @@ font-family: sans-serif;
     padding-left:0px;
     margin-right:2px;
     }
-
+.likeStatus
+{
+    margin-left:54px;
+}
+.likeOnCommentWraper {
+    display: inline;
+}
 /*****************signup loading image**********************/
 
 .signup-loader img {
@@ -1477,7 +1480,10 @@ height:32px;
     resize: none;
     width: 413px;
 }
-
+.StatusComment {
+    background-color: #F1F1F1;
+    margin-bottom: 1px;
+}
 /*********************General Settings************************/
 
 .documentWidht
@@ -1573,3 +1579,44 @@ height:32px;
     margin: 10px 0 0 49px;
     width: 53%;
 }
+
+.statuImg {
+     height: 10%;
+    margin-left: 0.6%;
+    width: 34%;
+}
+
+
+/*****************************************************/
+
+
+.statusWrapper {
+    border-top: 1px solid rgba(191, 204, 255, 0.67);
+    padding: 2% 2% 2% 4%;
+}
+
+.statusInputWrapper {
+    margin: 5%;
+}
+
+.statusInput {
+    margin-top: 1%;
+}
+
+#btnPostStatus
+{
+    background-image: linear-gradient(to top, #535776 0%, #E4E4E4 100%);
+    border-radius: 2px;
+    color: #FFFFFF;
+    font-weight: 900;
+    height: 23px;
+   
+    padding: 0 ;
+    width: 82px ;
+    margin-left: 407px;
+}
+
+    #btnPostStatus:hover
+    {
+        background-image: linear-gradient(to bottom, #535776 0%, #E4E4E4 100%);
+    }
