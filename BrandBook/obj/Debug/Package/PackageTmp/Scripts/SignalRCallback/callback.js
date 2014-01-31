@@ -48,6 +48,7 @@
         $('.userComment').filter(function () {
             return $(this).data('statusid') == result.Data.commentModel.StatusID;
         }).before(result.Data.html).parent().removeClass('hide');
+        $('.userComment').data("commentbyuserid", getCookie("UserDetaisID"));
     }
     $.connection.hub.start();
     $.connection.hub.start().done(function () {
@@ -74,7 +75,7 @@
                     url: statusUrl,
                     type: 'POST',
                     async: false,
-                    data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': parent.data('commentbyuserid'), 'CommentContent': context.val(), 'CommentType': 'T', 'Action': 'I' },
+                    data: { 'StatusID': parent.data('statusid'), 'CommentedByUserID': /*parent.data('commentbyuserid')*/getCookie("UserDetaisID"), 'CommentContent': context.val(), 'CommentType': 'T', 'Action': 'I' },
                     success: function () {
                         context.val("");
                     },
