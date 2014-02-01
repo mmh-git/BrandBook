@@ -136,6 +136,9 @@ function resetStatusUploadControl() {
     $('.statusImg').children('img').attr('src', '');
     $('.PostStatus').removeClass('hide').addClass('hide');
     $('#txtStatusWrapper').removeClass('hide');
+    $(".k-upload-button").removeClass("hide");
+    $(".k-upload-button").removeClass("k-state-focused");
+    
     $('#txtImgDesc').val('');
     $("#txtStatusInput").val("");
 

@@ -49,7 +49,7 @@ namespace BrandBook.Controllers
                     statusUpdateModel.StatusContent = imgModel.ImageID.ToString();
                     statusUpdateModel.fileID = imgModel.ImageID;
                     statusUpdateModel.fileDesc = imgModel.ImgDesc;
-                    statusUpdateModel.StatusContent = imgModel.ImageUrl;
+                    statusUpdateModel.StatusContent = imgModel.ImageID.ToString();
                     statusUpdateModel = _bizContext.SaveStatus(statusUpdateModel);
                 }
             }

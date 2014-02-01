@@ -56,7 +56,7 @@ Begin
 	values(@UserDetailsID,@StatusType,@StatusContent,@CreatedDate)
 	select @StatusID=@@IDENTITY
 	
-	select su.StatusID as StatusID,
+	/*select su.StatusID as StatusID,
 	su.StatusType as StatusType,
 	--img1.ImageUrl as StatusContent,
 	su.StatusContent as StatusContent,
@@ -73,7 +73,30 @@ Begin
 	on su.UserDetailsID=ud.UserDetailsID
 	join Images as img2
 	on ud.proPicId=img2.ImageID
-	where su.StatusID=@StatusID
+	where su.StatusID=@StatusID*/
+	
+select	temp.StatusID as StatusID,
+temp.StatusType as StatusType,
+temp.ImageUrl as StatusContent,
+temp.ImgDesc as fileDesc,
+temp.createdDate as CreatedDate,
+temp.UserDetailsID as StatusByUserID,
+temp.FirstName+' '+temp.LastName as FullName,
+temp.proPicId as PicID,
+img2.ImageUrl as ProPicUrl
+ from 
+(select su.StatusID,su.StatusType,img1.ImageUrl,img1.ImgDesc,su.createdDate,su.UserDetailsID,ud.FirstName,ud.LastName,ud.proPicId
+from StatusUpdate as su
+join
+Images as img1
+on su.StatusContent=img1.ImageID
+join
+UserDetails as ud
+on su.UserDetailsID=ud.UserDetailsID
+where su.StatusType='I') as temp
+join Images as img2
+on temp.proPicId=img2.ImageID
+where temp.StatusID=@StatusID
 	
 End
 ELSE IF @StatusType='V'
