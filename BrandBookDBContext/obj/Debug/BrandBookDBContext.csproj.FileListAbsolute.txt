@@ -11,10 +11,3 @@ E:\PROJECTS\GitHubRepo\BrandBook\BrandBookDBContext\bin\Debug\BrandBookModel.pdb
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.csprojResolveAssemblyReference.cache
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.dll
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.pdb
-E:\Projects\BrandBook\BrandBookDBContext\bin\Debug\BrandBookDBContext.dll
-E:\Projects\BrandBook\BrandBookDBContext\bin\Debug\BrandBookDBContext.pdb
-E:\Projects\BrandBook\BrandBookDBContext\bin\Debug\BrandBookModel.dll
-E:\Projects\BrandBook\BrandBookDBContext\bin\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.csprojResolveAssemblyReference.cache
-E:\Projects\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.dll
-E:\Projects\BrandBook\BrandBookDBContext\obj\Debug\BrandBookDBContext.pdb

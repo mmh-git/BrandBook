@@ -15,6 +15,7 @@ namespace BrandBookBiz
         LikeRepository _likeRepository;
         UserRepository _userRepository;
         ImageRepository _imageRepository;
+        UserProfileRepository _userProfileRepository;
         #endregion
         public BrandBookFacadeBiz()
         {
@@ -23,6 +24,7 @@ namespace BrandBookBiz
             _likeRepository = new LikeRepository();
             _userRepository = new UserRepository();
             _imageRepository = new ImageRepository();
+            _userProfileRepository = new UserProfileRepository();
         }
         #region Status Method
         public List<StatusUpdateModel> GetStatusList(StatusUpdateModel statusUpdateModel)
@@ -61,6 +63,12 @@ namespace BrandBookBiz
         public ImageModel SaveImage(ImageModel imageModel)
         {
             return _imageRepository.SaveImage(imageModel);
+        }
+        #endregion
+        #region UserProfile Method
+        public UserProfile GetUserProfile(UserModel userModel)
+        {
+            return _userProfileRepository.GetUserProfile(userModel);
         }
         #endregion
     }

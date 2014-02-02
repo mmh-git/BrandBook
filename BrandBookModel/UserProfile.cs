@@ -5,9 +5,11 @@ using System.Text;
 
 namespace BrandBookModel
 {
-    class UserProfile
+   public class UserProfile
     {
-        UserModel user { get; set; }
-        List<StatusUpdateModel> statusUpdates { get; set; }
+       public UserModel user { get; set; }
+       public List<StatusUpdateModel> statusUpdates { get; set; }
+       public List<BrandModel> brands { get; set; }
+       public List<ProjectModel> projects { get; set; }
     }
 }

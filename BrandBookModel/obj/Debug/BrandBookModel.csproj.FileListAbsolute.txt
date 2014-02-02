@@ -3,8 +3,3 @@ E:\Projects\BrandBook20131226\BrandBookModel\bin\Debug\BrandBookModel.pdb
 E:\Projects\BrandBook20131226\BrandBookModel\obj\Debug\BrandBookModel.csprojResolveAssemblyReference.cache
 E:\Projects\BrandBook20131226\BrandBookModel\obj\Debug\BrandBookModel.dll
 E:\Projects\BrandBook20131226\BrandBookModel\obj\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookModel\bin\Debug\BrandBookModel.dll
-E:\Projects\BrandBook\BrandBookModel\bin\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookModel\obj\Debug\BrandBookModel.dll
-E:\Projects\BrandBook\BrandBookModel\obj\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookModel\obj\Debug\BrandBookModel.csprojResolveAssemblyReference.cache

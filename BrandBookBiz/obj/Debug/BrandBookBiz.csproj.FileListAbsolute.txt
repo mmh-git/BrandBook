@@ -20,14 +20,3 @@ E:\PROJECTS\GitHubRepo\BrandBook\BrandBookBiz\bin\Debug\BrandBookDBContext.pdb
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.csprojResolveAssemblyReference.cache
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.dll
 E:\PROJECTS\GitHubRepo\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.pdb
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookBiz.dll
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookBiz.pdb
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookModel.dll
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookRepository.dll
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookDBContext.dll
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookModel.pdb
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookRepository.pdb
-E:\Projects\BrandBook\BrandBookBiz\bin\Debug\BrandBookDBContext.pdb
-E:\Projects\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.csprojResolveAssemblyReference.cache
-E:\Projects\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.dll
-E:\Projects\BrandBook\BrandBookBiz\obj\Debug\BrandBookBiz.pdb
