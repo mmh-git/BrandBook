@@ -1,0 +1,365 @@
+﻿@using BrandBookModel
+@using BrandBook.Helper
+@model BrandBookModel.UserProfile
+@{
+    Layout = null;
+    var User = Model.user;
+}
+<div class="UserProfileMain">
+    @*<div class="userAutoSearchWrapper">
+        <input type="text" class="typeahead" data-provide="typeahead" autocomplete="off" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".typeahead").typeahead();
+            })
+            
+        </script>
+    </div>*@
+    <div class="userProfileLeftPanel">
+        <div class="ProfileImage">
+            <img class="imgProfile popupImg" src="@Url.Content(@Model.user.ProfilePicUrl)" data-imgid="@Model.user.ProfilePicID" />
+            <br />
+            @*<span class="ProfileFullName">@Model.user.FirstName.ToUpper() @Model.user.LastName.ToUpper()</span>*@
+        </div>
+        <div class="userInfoWrapper user">
+           
+                
+                <div class="divEdit">
+                    <span>About</span>
+                     @{
+                    if (User.UserDetailsID.ToString() == CookieManager.GetCookie("UserDetaisID"))
+                {
+                    <a class="aEditUserInfo aEditUser" data-toggle="modal" data-target="#editUserInfoModal" data-userid="@User.UserDetailsID">Edit</a>
+                }
+                 }
+                </div>
+                
+                
+           
+            <ul>
+                <li><div class="lblUserField">BPL Initial</div><div class="valUserField">@User.UserName</div></li>
+                <li><div class="lblUserField">Full Name</div><div class="valUserField">@User.FirstName @User.LastName</div></li>
+                <li><div class="lblUserField">Designation</div> <div class="valUserField">@User.Desination</div></li>
+                <li><div class="lblUserField">Email</div><div class="valUserField">@User.Email</div></li>
+                <li><div class="lblUserField">Mobile Number</div><div class="valUserField">@User.Mobile</div></li>
+                <li><div class="lblUserField">Extension Number</div><div class="valUserField">@User.Extention</div></li>
+                <li><div class="lblUserField">Address</div><div class="valUserField">@User.Address</div></li>
+            </ul>
+        </div>
+        <div class="userBrand user">
+            
+                <div class="divEdit">
+                    <span>Brands</span>
+                    @{
+                if (User.UserDetailsID.ToString() == CookieManager.GetCookie("UserDetaisID"))
+                {
+                    <a class="aEditUseBrands aEditUser" data-toggle="modal" data-target="#editUserBrandModal" data-userid="@User.UserDetailsID">Edit</a>
+                        }
+            }
+                </div>
+                
+            @if (Model.brands.BrandId != 0)
+            {
+                <div id="divBrand">
+                    @Model.brands.BrandName
+                </div>
+            }
+            else
+            {
+                <div id="divBrand">
+                    No Brand  Assigned Yet.
+                </div>
+              
+            }
+        </div>
+        <div class="userProject user">
+            
+                <div class="divEdit">
+                <span>Projects</span>
+                    @{
+                        if (User.UserDetailsID.ToString() == CookieManager.GetCookie("UserDetaisID"))
+                        {
+                    <a class="aEditUserProject aEditUser" data-toggle="modal" data-target="#editUserProjectModal" data-userid="@User.UserDetailsID">Edit</a>
+                        }
+            }
+                </div>
+                
+            @if (Model.projects.ProjectID != 0
+                )
+            {
+                
+                    <div id="divProject">
+                    @Model.projects.ProjectName
+                </div>
+                
+            }
+            else
+            {
+                <div id="divProject">
+                <span>No Project  Assigned Yet.</span>
+                    </div>
+            }
+        </div>
+    </div>
+        
+    @{if (Model.statusUpdates != null)
+      {
+        <div class="userStatusWrapper">
+            @foreach (StatusUpdateModel status in Model.statusUpdates)
+            {
+                <div class="userStatus">
+                    <div class="statusProfPic">
+                        <img class="statusProfilePic popupImg" src="@Url.Content(status.ProPicUrl)" data-imgid="@status.PicID"/>
+                    </div>
+                    <div class="statusByUserName">
+                        <a href="#">@status.FullName</a>
+                    </div>
+                    <div class="status-Content">
+                        @if (status.StatusType == "T")
+                        {
+                            @status.StatusContent                 
+                        }
+                        else if (status.StatusType == "I")
+                        {  
+                            <span>@status.fileDesc</span>
+                            <img class="statuImg popupImg" src="@Url.Content(status.StatusContent)" data-fileid="@status.fileID" />      
+                        }
+                    </div>
+                    <div class="statusLikeCommentWrapper">
+                        @if (status.Likes.Count > 0)
+                        {
+                            if (status.Likes.Where(l => l.LikedByUserID == Model.user.UserDetailsID).Count() > 0)
+                            {
+                            <div class="like-Status">
+                                @{
+                                if (status.Likes.Count == 1)
+                                {
+                                    <a class="likemsg" href="#">You </a><span>like this</span>
+                                }
+                                else
+                                {
+                                    <a class="likemsg" href="#">@status.Likes.Count people </a><span>like this</span>
+                                }
+                                }
+                            </div>
+                            }
+                            else
+                            {
+                            <div class="like-Status">
+                                @{
+                                if (status.Likes.Count == 1)
+                                {
+                                    <a class="likemsg aFullName" data-userid="@status.Likes.First().LikedByUserID" href="#">@status.Likes[0].LikedByUserFullName </a><span>likes this</span>
+                                }
+                                else
+                                {
+                                    <a class="likemsg" href="#">@status.Likes.Count people </a><span>like this</span>                                                                       
+                                }
+                                                                                                       
+                                                                   
+                                }
+                            </div>  
+                            }
+                        }
+                        @foreach (CommentModel ModelComment in status.Comments)
+                        {
+                            <div class="Status-Comment" data-statusid="@status.StatusID" data-commentid="@ModelComment.CommentID" data-commentbyuserid="@ModelComment.CommentedByUserID">
+                                <img id="@ModelComment.CommentedByUserProPicID" src="@Url.Content(@ModelComment.CommentedByUserProPicUrl)" class="commentUserImage popupImg"/>
+                                <a href="#" class="aFullName" data-userid="@ModelComment.CommentedByUserID">@ModelComment.CommentedByUserFullName</a>
+                                <span class="CommentContent">@ModelComment.CommentContent</span>
+                                <div class="likeOnCommentWraper">
+                                    @*<a href="#">Like</a>*@
+                                    @if (@ModelComment.Likes.Count > 0)
+                                    {
+                                        <img src='@Url.Content("~/Content/themes/base/images/like.jpg")'> @ModelComment.Likes.Count 
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+      }
+      else
+      {
+        <div class="userStatusWrapper">
+            No Status Update Available
+        </div>
+      }}
+
+
+
+<!---- All BootStrap Modal Goes here---->
+    @{
+        if (User.UserDetailsID.ToString() == CookieManager.GetCookie("UserDetaisID"))
+        {
+                <div class="modal fade" id="editUserInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" id="editUserInfoModalContent">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Edit Basic Info</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="editInfoWrapper">
+                                   
+                                    <form id="frmEditUserInfo">
+                                         @Html.HiddenFor(m => m.user.UserDetailsID)
+                                        <div class="edit-content">
+                                            <span>First Name : </span>@Html.EditorFor(m => m.user.FirstName)
+                                        </div>
+                                        <div class="edit-content">
+                                            <span>LastName : </span>@Html.EditorFor(m => m.user.LastName)
+                                        </div>
+                                        <div class="edit-content">
+                                            <span>Address : </span>@Html.EditorFor(m => m.user.Address)
+                                         </div>
+                                        <div class="edit-content">
+                                            <span>Mobile Number : </span>@Html.EditorFor(m => m.user.Mobile)
+                                        </div>
+                                        <div class="edit-content">
+                                            <span>Extension Number : </span>@Html.EditorFor(m => m.user.Extention)
+                                        </div>
+                                        <div class="edit-content">
+                                            <span>Designation : </span>@Html.EditorFor(m => m.user.Desination)
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="message"></span>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary btn-SaveUserInfo" data-dismiss="">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="modal fade" id="editUserBrandModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" id="editUserBrandModalContent">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Edit Basic Info</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="editBrandWrapper">
+                                   
+                                    <form id="frmEditUserBrnad">
+                                        @Html.HiddenFor(m => m.user.UserDetailsID)
+                                        @Html.HiddenFor(m => m.brands.BrandId)
+                                        <div class="edit-content">
+                                            <span>Brand Name : </span>@Html.EditorFor(m => m.brands.BrandName)
+                                        </div>
+                                       
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="message"></span>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary btn-SaveUserBrand" data-dismiss="">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         <div class="modal fade" id="editUserProjectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" id="editUserProjectModalContent">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Edit Basic Info</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="editBrandWrapper">
+                                   
+                                    <form id="frmEditProjectBrnad">
+                                        @Html.HiddenFor(m => m.user.UserDetailsID)
+                                        @Html.HiddenFor(m => m.projects.ProjectID)
+                                        <div class="edit-content">
+                                            <span>Project Name : </span>@Html.EditorFor(m => m.projects.ProjectName)
+                                        </div>
+                                       
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="message"></span>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary btn-SaveUserProject" data-dismiss="">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        }
+            }
+</div>
+
+<!----Modal Definition End -->
+
+
+@*<script>
+    $(document).ready(function () {
+        var crudServiceBaseUrl = "http://demos.kendoui.com/service",
+                        dataSource = new kendo.data.DataSource({
+                            transport: {
+                                read: {
+                                    url: baseUrl + "UserProfile/GetBrandList",
+                                    dataType: "jsonp"
+                                },
+                                update: {
+                                    url: baseUrl + "/Products/Update",
+                                    dataType: "jsonp"
+                                },
+                                destroy: {
+                                    url: baseUrl + "/Products/Destroy",
+                                    dataType: "jsonp"
+                                },
+                                create: {
+                                    url: baseUrl + "/Products/Create",
+                                    dataType: "jsonp"
+                                },
+                                parameterMap: function (options, operation) {
+                                    if (operation !== "read" && options.models) {
+                                        return { models: kendo.stringify(options.models) };
+                                    }
+                                }
+                            },
+                            batch: true,
+                            pageSize: 20,
+                            schema: {
+                                model: {
+                                    id: "BrandID",
+                                    fields: {
+                                        BrandID: { type: "number", editable: false, nullable: true },
+                                        BrandName: { validation: { required: true } },
+                                        BrandDesc: {
+                                             validation: { required: true, min: 1 }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+        $("#divBrandGrid").kendoGrid({
+            dataSource: dataSource,
+            navigatable: true,
+            filterable: true,
+            pageable: true,
+            height: 430,
+            width: 300,
+            toolbar: ["create", "save", "cancel"],
+            columns: [
+                            "ProductName",
+                            { field: "BrandID", title: "BrandID", format: "{0:c}", width: "130px" },
+                            { field: "BrandName", title: "BrandName", width: "130px" },
+                            { field: "BrandDesc", width: "130px" },
+                            { command: ["destroy"], title: "&nbsp;", width: "100px"}],
+            editable: true
+        });
+    });
+</script>*@

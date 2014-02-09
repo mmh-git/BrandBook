@@ -58,7 +58,6 @@ namespace BrandBookDBContext
                 new SqlParameter("@FirsName",userModel.FirstName),
                 new SqlParameter("@LasName",userModel.LastName),
                 new SqlParameter("@Designation",userModel.Desination),
-                new SqlParameter("@DOB",userModel.DateOfBirth),
                 new SqlParameter("@Gender",userModel.Gender),
                 new SqlParameter("@proPicId",userModel.Gender=="Male"?1:2),
                 new SqlParameter("@createdDate",DateTime.Now)

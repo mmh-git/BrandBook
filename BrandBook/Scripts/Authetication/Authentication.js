@@ -26,7 +26,7 @@ function Login()
             url: regUrl,
             type: 'POST',
             data: serialiedData,
-            async: true,
+            async: false,
             success: function (data) {
                 if (data == "done") {
                     if (!$('.loginErrorMsg').hasClass('hide')) {

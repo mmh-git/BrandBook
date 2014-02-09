@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using BrandBookModel;
+
 namespace BrandBookDBContext
 {
     public class DBUserProfile:DBContext
@@ -22,7 +23,7 @@ namespace BrandBookDBContext
         #region Constructor
 
         // default constructor
-        public DBUser()
+        public DBUserProfile()
         {
             this._dataReader = null;
             this._spParameters = null;
@@ -46,26 +47,77 @@ namespace BrandBookDBContext
             return _dataSet;
         }
 
-        public UserModel SaveUserDetails(UserModel userModel)
+        public int EditUserProfile(UserModel userModel)
         {
-            _spName = "UserDetails_SaveUserDetails";
+            _spName = "sp_editUserInfo";
             SqlParameter sqlparam = new SqlParameter("@UserDetailsID", userModel.UserDetailsID);
-            sqlparam.Direction = ParameterDirection.InputOutput;
             _spParameters = new SqlParameter[] 
             {
-                new SqlParameter("@UserId",userModel.UserID),
                 sqlparam,
-                new SqlParameter("@FirsName",userModel.FirstName),
-                new SqlParameter("@LasName",userModel.LastName),
+                new SqlParameter("@FirstName",userModel.FirstName),
+                new SqlParameter("@LastName",userModel.LastName),
+                new SqlParameter("@Address",userModel.Address),
+                
                 new SqlParameter("@Designation",userModel.Desination),
-                new SqlParameter("@DOB",userModel.DateOfBirth),
-                new SqlParameter("@Gender",userModel.Gender),
-                new SqlParameter("@proPicId",userModel.Gender=="Male"?1:2),
-                new SqlParameter("@createdDate",DateTime.Now)
+                new SqlParameter("@Mobile",userModel.Mobile),
+                new SqlParameter("@Extension",userModel.Extention)
             };
             int result = ExecuteNoResult(_spName, _spParameters);
-            userModel.UserDetailsID = Convert.ToInt32(sqlparam.Value);
-            return userModel;
+
+            return result;
+        }
+
+        public DataTable getBrandList(int userDetailsId)
+        {
+            _spName = "sp_getBrandList";
+            _spParameters = new SqlParameter[] 
+            {
+                new SqlParameter("@UserDetailsID",userDetailsId)
+            };
+            _dataTable = ExecuteDataTable(_spName, _spParameters);
+            return _dataTable;
+        }
+        public DataTable getProjectList(int userDetailsId)
+        {
+            _spName = "sp_getProjectList";
+            _spParameters = new SqlParameter[] 
+            {
+                new SqlParameter("@UserDetailsID",userDetailsId)
+            };
+            _dataTable = ExecuteDataTable(_spName, _spParameters);
+            return _dataTable;
+        }
+        public int insertUserBrand(BrandModel brandModel,int userDetailsId)
+        {
+            _spName = "sp_insertBrands";
+            SqlParameter sqlparam = new SqlParameter("@UserDetailsID", userDetailsId);
+            _spParameters = new SqlParameter[] 
+            {
+                new SqlParameter("@brandid", brandModel.BrandId),
+                sqlparam,
+                new SqlParameter("@brandName",brandModel.BrandName),
+                new SqlParameter("@brandDesc",brandModel.BrandDesc)
+                
+            };
+            int result = ExecuteNoResult(_spName, _spParameters);
+
+            return result;
+        }
+        public int insertUserProject(ProjectModel brandModel, int userDetailsId)
+        {
+            _spName = "sp_insertProjects";
+            SqlParameter sqlparam = new SqlParameter("@UserDetailsID", userDetailsId);
+            _spParameters = new SqlParameter[] 
+            {
+                new SqlParameter("@projectid", brandModel.ProjectID),
+                sqlparam,
+                new SqlParameter("@projectName",brandModel.ProjectName),
+                new SqlParameter("@projectDesc",brandModel.ProjectDesc)
+                
+            };
+            int result = ExecuteNoResult(_spName, _spParameters);
+
+            return result;
         }
         #endregion DBUser public method
     }

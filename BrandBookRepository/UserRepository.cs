@@ -22,35 +22,34 @@ namespace BrandBookRepository
         public UserModel GetUserDetails(UserModel userModel)
         {
             UserModel _userModel=new UserModel();
-            //try
-            //{
+            try
+            {
                 DataRow dr = _dbUser.GetUserDetails(userModel).Rows[0];
                
-                    _userModel = new UserModel()
-                    {
-                        UserID = dr["UserId"].ToString(),
-                        UserDetailsID = Convert.ToInt32(dr["UserDetailsID"]),
-                        Address = dr["Address"].ToString(),
-                        City = dr["City"].ToString(),
-                        Country = dr["Country"].ToString(),
-                        FirstName = dr["FirstName"].ToString(),
-                        LastName = dr["LastName"].ToString(),
-                        ProfilePicID = dr["proPicId"].ToString(),
-                        ProfilePicUrl = dr["ImageUrl"].ToString(),
-                        DateOfBirth = Convert.ToDateTime(dr["DOB"]),
-                        Desination = dr["Designation"].ToString(),
-                        Email = dr["Email"].ToString(),
-                        Gender = dr["Gender"].ToString(),
-                        Phone = dr["Phone"].ToString(),
-                        UserName = dr["UserName"].ToString()
-                    };
+                    _userModel = new UserModel();
                     
-                
-            //}
-            //catch (Exception exception)
-            //{
-            //    //
-            //}
+                       _userModel.UserID = dr["UserId"].ToString();
+                         _userModel.UserDetailsID = Convert.ToInt32(dr["UserDetailsID"]);
+                         _userModel.Address = dr["Address"].ToString();
+
+                         _userModel.Extention = dr["Extension"].ToString();
+                         _userModel.FirstName = dr["FirstName"].ToString();
+                         _userModel.LastName = dr["LastName"].ToString();
+                         _userModel.ProfilePicID = dr["proPicId"].ToString();
+                         _userModel.ProfilePicUrl = dr["ImageUrl"].ToString();
+                         _userModel.Desination = dr["Designation"].ToString();
+                         _userModel.Email = dr["Email"].ToString();
+                         _userModel.Gender = dr["Gender"].ToString();
+                         _userModel.Mobile = dr["Mobile"].ToString();
+                         _userModel.UserName = dr["UserName"].ToString();
+                    
+
+
+            }
+            catch (Exception exception)
+            {
+                //
+            }
 
             return _userModel;
         }

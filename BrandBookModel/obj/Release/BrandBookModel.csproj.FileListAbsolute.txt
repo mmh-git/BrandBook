@@ -2,3 +2,13 @@ E:\Projects\BrandBook20131226\BrandBookModel\bin\Release\BrandBookModel.dll
 E:\Projects\BrandBook20131226\BrandBookModel\bin\Release\BrandBookModel.pdb
 E:\Projects\BrandBook20131226\BrandBookModel\obj\Release\BrandBookModel.dll
 E:\Projects\BrandBook20131226\BrandBookModel\obj\Release\BrandBookModel.pdb
+E:\Projects\BrandBook\BrandBookModel\bin\Release\BrandBookModel.dll
+E:\Projects\BrandBook\BrandBookModel\bin\Release\BrandBookModel.pdb
+E:\Projects\BrandBook\BrandBookModel\obj\Release\BrandBookModel.csprojResolveAssemblyReference.cache
+E:\Projects\BrandBook\BrandBookModel\obj\Release\BrandBookModel.dll
+E:\Projects\BrandBook\BrandBookModel\obj\Release\BrandBookModel.pdb
+H:\BrandBook\BrandBookModel\bin\Release\BrandBookModel.dll
+H:\BrandBook\BrandBookModel\bin\Release\BrandBookModel.pdb
+H:\BrandBook\BrandBookModel\obj\Release\BrandBookModel.csprojResolveAssemblyReference.cache
+H:\BrandBook\BrandBookModel\obj\Release\BrandBookModel.dll
+H:\BrandBook\BrandBookModel\obj\Release\BrandBookModel.pdb

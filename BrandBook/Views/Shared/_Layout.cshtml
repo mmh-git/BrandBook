@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -48,7 +49,7 @@
     <body>
         <div id="header" class="clearfix">
             <h1 id="headerLogo">
-                Brand Book
+                @System.Configuration.ConfigurationManager.AppSettings["SiteName"].ToString()
             </h1>
             <div id="divLogOut" class="float-right"></div>
         </div>

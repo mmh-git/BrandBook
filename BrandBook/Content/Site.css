@@ -9,7 +9,7 @@ html
 body
 {
     color: #333;
-    font-size: 8pt;
+    font-size: 12pt;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -269,7 +269,7 @@ footer
     float: left;
     padding: 20px 0 0 2px;
     position: relative;
-    width: 179px;
+    min-width: 179px;
     word-wrap: break-word;
     min-height: 800px;
 
@@ -315,7 +315,7 @@ footer
     .statusInput textarea
     {
       border: medium none;
-    height: 27px;
+    height: 45px;
     resize: none;
     padding:4px;
         /*overflow:visible;*/
@@ -1580,11 +1580,7 @@ height:32px;
     width: 53%;
 }
 
-.statuImg {
-     height: 10%;
-    margin-left: 0.6%;
-    width: 34%;
-}
+
 
 
 /*****************************************************/
@@ -1603,20 +1599,246 @@ height:32px;
     margin-top: 1%;
 }
 
-#btnPostStatus
-{
+#btnPostStatus {
     background-image: linear-gradient(to top, #535776 0%, #E4E4E4 100%);
-    border-radius: 2px;
+    border-radius: 6px;
     color: #FFFFFF;
     font-weight: 900;
-    height: 23px;
-   
-    padding: 0 ;
-    width: 82px ;
+    height: 34px;
     margin-left: 407px;
+    padding: 0;
+    width: 82px;
 }
 
     #btnPostStatus:hover
     {
         background-image: linear-gradient(to bottom, #535776 0%, #E4E4E4 100%);
     }
+
+    .progressbarContainer{
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    display: inline-block;
+    left: 34%;
+    margin: 0 10px 5px 5px;
+    overflow: hidden;
+    position: absolute;
+    top: 40%;
+    vertical-align: top;
+    width: 300px;
+}
+    .progressbar {
+    color: #fff;
+    text-align: right;
+    height: 25px;
+    width: 0;
+    background-color: #0ba1b5;
+    border-radius: 3px;
+}
+
+
+
+    /*******************************Profile Css*****************************/
+
+    .userProfileLeftPanel {
+    
+    border-radius: 4px;
+    float: left;
+    min-height: 900px;
+    width: 30%;
+}
+    .userStatusWrapper {
+    margin-left: 35%;
+    width: 80%;
+}
+    .UserProfileMain {
+    margin-top: 1%;
+}
+    .userStatus {
+    border: 1px solid #000000;
+    border-radius: 6px;
+    margin: 0 0 12px 10px;
+    width: 63%;
+    padding:0 0 10px;
+    min-height: 80px;
+}
+    .statusProfPic {
+    border: 1px solid #000000;
+    border-radius: 4px;
+    float: left;
+    margin: 5px;
+    padding: 1px;
+    width: 9%;
+}
+    .statusByUserName {
+    margin: 5px 0 0 10%;
+    width: 24%;
+}
+    .statusByUserName > a {
+    padding: 0;
+}
+
+    .statuImg {
+     height: 10%;
+    /*margin-left: 0.6%;*/
+    width: 34%;
+}
+    .status-Content > span {
+    display: block;
+    width: 80%;
+}
+    .status-Content {
+    margin: 5px 0 0 10%;
+    width: 80%;
+}
+    .statusLikeCommentWrapper {
+    margin: 20px 0 0 10%;
+    width: 80%;
+}
+    .Status-Comment {
+    background-color: #F1F1F1;
+    margin: 6px 0px 1px 0px ;
+}
+
+
+.statusByUserName > a {
+    color: #3B5998;
+    font-size: 10pt;
+    font-weight: bold;
+
+    text-decoration: none;
+    font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+
+/**********Loader**************/
+
+
+.loaderWrapper {
+    border-radius: 25px;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.loaderWrapper>.loadingOverlay {
+    background-color: #EEEEEE;
+    height: 100%;
+    opacity: 0.39;
+    width: 100%;
+    z-index: 200;
+}
+
+.loaderWrapper>.waitLoader {
+    background: linear-gradient(135deg, #E9E9E9 0%, #FFFFFF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #C8C8C8;
+    border-radius: 10px;
+    box-shadow: 5px 6px 5px #888888;
+    font-family: calibri;
+    font-size: 9pt;
+    height: 44px;
+    left: 35%;
+    padding: 14px 0 0 16px;
+    position: absolute;
+    top: 40%;
+    width: 124px;
+}
+.waitLoader > img {
+height:16px;
+width:16px;
+}
+
+
+.ProfileImage {
+   border: 1px solid #EEEEEE;
+    border-radius: 7px;
+    height: 20%;
+    margin-left: 3%;
+    width: 48%;
+}
+
+.ProfileFullName {
+    color: #C1C1C1;
+    font-size: 20pt;
+    margin-left: 11%;
+}
+
+.imgProfile {
+    width: 94%;
+}
+
+.userInfoWrapper {
+    border: 1px solid #EEEEEE;
+    color: #9E899E;
+    font-size: 11pt;
+    margin: 20px 0 20px 10px;
+    padding: 10px;
+    width: 60%;
+}
+
+.divEdit {
+     background-image: linear-gradient(to top, #FFFFFF 0%, #D0E4E4 100%);
+    height: 40px;
+    margin: -10px;
+    padding: 2px
+}
+
+.aEditUser {
+    float: right;
+    margin-right: 9px;
+}
+
+.user {
+    border: 1px solid #EEEEEE;
+    color: #9E899E;
+    font-size: 11pt;
+    margin: 20px 0 20px 10px;
+    min-width: 97%;
+    padding: 10px;
+}
+
+    .user > ul {
+    list-style-type:none;
+    margin:18px 0 0 -22px;
+    }
+
+.lblUserField {
+    color: #9D9D9D;
+    float: left;
+    font-weight: 500;
+    width: 149px;
+}
+
+.userInfoWrapper.user li {
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 13px;
+    padding-bottom: 6px;
+    width: 86%;
+}
+
+.popupimagecontainer {
+    height: 90%;
+    width: 100%;
+}
+
+#imageModalContent {
+    min-height: 90%;
+    width: 100%;
+}
+
+.popupImg {
+    cursor:pointer;
+}
+
+.siteLogo {
+    left: 76%;
+    position: fixed;
+    top: 74%;
+    width: 32%;
+}
+.siteLogo>img {
+    width: 70%;
+    
+}

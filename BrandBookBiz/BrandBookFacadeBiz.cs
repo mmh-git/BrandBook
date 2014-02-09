@@ -16,6 +16,7 @@ namespace BrandBookBiz
         UserRepository _userRepository;
         ImageRepository _imageRepository;
         UserProfileRepository _userProfileRepository;
+        ValidationRepository _validationRepository;
         #endregion
         public BrandBookFacadeBiz()
         {
@@ -25,6 +26,8 @@ namespace BrandBookBiz
             _userRepository = new UserRepository();
             _imageRepository = new ImageRepository();
             _userProfileRepository = new UserProfileRepository();
+            _validationRepository = new ValidationRepository();
+           
         }
         #region Status Method
         public List<StatusUpdateModel> GetStatusList(StatusUpdateModel statusUpdateModel)
@@ -69,6 +72,37 @@ namespace BrandBookBiz
         public UserProfile GetUserProfile(UserModel userModel)
         {
             return _userProfileRepository.GetUserProfile(userModel);
+        }
+        public int EditUserProfile(UserModel userModel)
+        {
+            return _userProfileRepository.EditUserProfile(userModel);
+        }
+        public BrandModel GetBrandList(int userDetailsId)
+        {
+            return _userProfileRepository.GetBrandList(userDetailsId);
+        }
+        public ProjectModel GetProjectList(int userDetailsId)
+        {
+            return _userProfileRepository.GetProjectList(userDetailsId);
+        }
+
+        public int insertUserBrand(BrandModel brandModel, int userDetailsId)
+        {
+            return _userProfileRepository.insertUserBrand(brandModel, userDetailsId);
+        }
+        public int insertUserProject(ProjectModel brandModel, int userDetailsId)
+        {
+            return _userProfileRepository.insertUserProject(brandModel, userDetailsId);
+        }
+        #endregion
+        #region Validation Method
+        public int ValidateUserName(string userName)
+        {
+            return _validationRepository.ValidateUserName(userName);
+        }
+        public int ValidateEmail(string email)
+        {
+            return _validationRepository.ValidateEmail(email);
         }
         #endregion
     }

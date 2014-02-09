@@ -1,6 +1,15 @@
 use brandbook
 go
 
+create table validBplUser
+(
+	id int identity primary key,
+	bplInitial varchar(10),
+	bplEmail varchar(50)	
+)
+
+go
+
 create table Brands
 (
 	BrandID int identity primary key,
@@ -170,3 +179,44 @@ join
 Projects p
 on up.ProjectID=p.ProjectID
 where up.UserDetailsID=@UserDetailsID
+
+go
+
+
+/**********Valid BPL USER DATA**********/
+
+INSERT INTO validBplUser(bplInitial,bplEmail)
+values('test','test@test.com')
+
+go
+
+INSERT INTO validBplUser(bplInitial,bplEmail)
+values('test','test@test.com')
+
+/******Create Validation SP******/
+GO
+
+alter proc ValidateUser
+(
+ @userName varchar(10)='',
+ @email		varchar(50)='' 
+)
+as
+DECLARE @COUNT INT=0
+IF @userName !=''
+BEGIN
+	SELECT @COUNT=COUNT(*) FROM validBplUser
+	WHERE bplInitial=@userName
+END
+
+IF @email !=''
+BEGIN
+	SELECT @COUNT=COUNT(*) FROM validBplUser
+	WHERE bplEmail=@email
+END
+
+select @COUNT
+
+GO
+
+

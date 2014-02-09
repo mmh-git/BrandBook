@@ -127,10 +127,10 @@ namespace BrandBook.Controllers
         public ActionResult IsLogedIn()
         {
             Dictionary<string, bool> is_LoggedIn = new Dictionary<string,bool>();
-            
+            bool isAuthentic = false;
             if (HttpContext.Request.Cookies[".ASPXAUTH"] == null)
             {
-                is_LoggedIn.Add("loggedIn", false);
+                isAuthentic= false;
                 HttpContext.Response.Cookies["UserID"].Value = "";
             }
             else
@@ -140,28 +140,29 @@ namespace BrandBook.Controllers
                 if (!ticket.Expired)
                 {
                     
-                    is_LoggedIn.Add("loggedIn", true);
+                    isAuthentic= true;
                 }
                 else{
-                    is_LoggedIn.Add("loggedIn", false);
+                    isAuthentic= false;
                     HttpContext.Response.Cookies["UserID"].Value = "";
                 }
-                
+
             }
-            
+
 
             //if (this.User.Identity.IsAuthenticated)
             //{
-            //    SessionVars.CurrentLoggedInUser.isLoggedIn = true;
-            //    is_LoggedIn.Add("loggedIn", true);
+
+            //    isAuthentic=true;
 
             //}
             //else
             //{
-            //    SessionVars.CurrentLoggedInUser = null;
-            //        is_LoggedIn.Add("loggedIn", false);
- 
+
+            //    isAuthentic = false;
+
             //}
+            is_LoggedIn.Add("loggedIn", isAuthentic);
             return Json(is_LoggedIn, JsonRequestBehavior.AllowGet);
         }
 

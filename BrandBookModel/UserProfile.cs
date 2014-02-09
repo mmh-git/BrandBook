@@ -9,7 +9,8 @@ namespace BrandBookModel
     {
        public UserModel user { get; set; }
        public List<StatusUpdateModel> statusUpdates { get; set; }
-       public List<BrandModel> brands { get; set; }
-       public List<ProjectModel> projects { get; set; }
+       public BrandModel brands { get; set; }
+       public ProjectModel projects { get; set; }
+       public List<UserModel> users { get; set; }
     }
 }

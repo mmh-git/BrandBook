@@ -10,24 +10,39 @@
     //    options.messages["IsDate"] = options.messages;
     //})
 
+
+    
+
+    $('#UserName').on('keyup',function(){
+        $('#Email').val($('#UserName').val() + '@bpl.net');
+    })
+
     $("#btnRegister").on('click', function () {
         var regUrl = baseUrl + "Account/SignUp";
         var serialiedData = $("#divSignUp :input").serialize();
-        $.validator.unobtrusive.parse("form");
-        var validDate=isDate($('#DateOfBirth').val());
-        if ($('form').valid() && validDate) {
+        $.validator.unobtrusive.parse("#frmSignUp");
+        if ($('#frmSignUp').valid()) {
+            showSignupLoader();
             $.ajax({
                 url: regUrl,
                 type: 'POST',
                 data: serialiedData,
                 success: function (data) {
                     if (data == 'Success') {
-                        loadUser();
+                        showSuccessSignupMessage();
+                    }
+                    else
+                    {
+                        showFailedSignupMessage();
                     }
                 },
                 error: function () {
 
-                    alert("error happen");
+                    showFailedSignupMessage();
+                },
+                complete: function ()
+                {
+                    hideSignupLoader();
                 }
             });
         }
@@ -35,6 +50,56 @@
 
 })
 
+
+function showSuccessSignupMessage()
+{
+    $('.message-header').text('Congratulations!');
+    $('.message-body>label').text('You have been signedup successfully. Enjoy Brand book');
+    if ($('.ProceedSuccess').hasClass('.hide')) {
+        $('.ProceedSuccess').remove('hide');
+    }
+    if (!$('.ProceedFail').hasClass('hide')) {
+        $('.ProceedFail').addClass('hide');
+    }
+    $('.signup-message-wrapper').slideDown({ duration: 700 });
+    
+    this.proceed = function ()
+    {
+        loadUser();
+        document.getElementById('frmSignUp').reset();
+        $('.signup-message-wrapper').slideUp({ duration: 700 });
+    }
+}
+
+function showFailedSignupMessage() {
+    $('.message-header').text('Sorry!');
+    $('.message-body>label').text('Unsuccessfull Operation. Please Try again');
+    if (!$('.ProceedSuccess').hasClass('.hide')) {
+        $('.ProceedSuccess').addClass('hide');
+    }
+    if ($('.ProceedFail').hasClass('.hide')) {
+        $('.ProceedFail').removeClass('hide');
+    }
+    $('.signup-message-wrapper').slideDown({ duration: 700 });
+    
+    this.proceed = function () {
+        $('.signup-message-wrapper').animate(
+{ width: 0 }, 700, function () {
+    $('.signup-message-wrapper').hide();
+    $('.signup-message-wrapper').css('width', '100%')
+
+})
+    }
+}
+
+function showSignupLoader()
+{
+    $('.signup-loading-overlay, .signup-loader').toggleClass('hide-loader show-loader');
+}
+function hideSignupLoader()
+{
+    $('.signup-loading-overlay, .signup-loader').toggleClass('show-loader hide-loader');
+}
 function isDate(value)
 {
     if(isNaN(Date.parse(value)))

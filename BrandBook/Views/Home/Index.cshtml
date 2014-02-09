@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         @*@Html.Label("User Name")*@
-                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
+                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "BPL Initial" })
                         @Html.ValidationMessageFor(m => m.UserName)
                     </li>
                     <li>
@@ -61,7 +61,7 @@
                         @Html.TextBox("Designation", null, new { @class = "form-control", placeholder = "Designation" })
                         @Html.ValidationMessageFor(m => m.Designation)
                     </li>
-                    <li>
+               <!--     <li>
                         <div class="birthday-wrapper ">
                             <div class="column birthday-fields-wrapper">
                                 <div class="column ">
@@ -282,7 +282,7 @@
 
                         @Html.ValidationMessageFor(m => m.DateOfBirth)
 
-                    </li>
+                    </li>-->
                     <li>
                         @Html.RadioButton("Gender", "Male")Male
                         @Html.RadioButton("Gender", "Female")Female<br />
@@ -322,7 +322,7 @@
                 <legend>Log in Form</legend>
                 <ul class="list-unstyled">
                     <li>
-                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "User Name" })
+                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "BPL Initial" })
 
                     </li>
                     <li>
@@ -342,12 +342,15 @@
             </fieldset>
         </div>
     </form>
+    <div class="siteLogo">
+        <img src='@Url.Content("~/Content/themes/base/images/Beximco-Logo.png")' />
+    </div>
 </div>
 <div id="divMain">
     <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
             <li class="active"><a href="#Home" data-toggle="tab">Home</a></li>
-            <li><a href="#Profile" data-toggle="tab">Profile</a></li>
+            <li><a href="#Profile" class="aProfile" data-toggle="tab">Profile</a></li>
             <li><a href="#Photo" data-toggle="tab">Photo Upload</a></li>
             <li><a href="#Option" data-toggle="tab">Option</a></li>
             <li><a href="#Video" data-toggle="tab">Video Upload</a></li>
@@ -359,6 +362,13 @@
 
             </div>
             <div class="tab-pane" id="Profile">
+                <div class="progressbarContainer hide">
+                        <div class="progressbar">
+                            @*<img src='@Url.Content("~/Content/themes/base/images/progress.gif")' />*@
+                        </div>
+                    </div>
+                <div class="UserProfileMainWrapper">
+                </div>
             </div>
             <div class="tab-pane" id="Photo">
             </div>
@@ -368,6 +378,7 @@
             </div>
         </div>
     </div>
+    
 </div>
 <div class="LogOutModalWrapper">
 </div>
@@ -397,3 +408,25 @@
     });
 </script>
 
+
+
+ <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" id="imageModalContent">
+                        <div class="modal-content" >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Photo Viewer</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="popupimageWrapper">
+                                   <img class="popupimagecontainer" src=""/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="message"></span>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>

@@ -90,10 +90,11 @@ namespace BrandBook.Models
         [Display(Name = "Email Address")]
         [RegularExpression(@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", ErrorMessage = "e.g example@something.com")]
         [Remote("IsEmailAvailable", "Validation")]
+        
         public string Email { get; set; }
 
-        [Required(ErrorMessage="*")]
-        [IsDate(ErrorMessage="Invalid Date Format")]
+        /*[Required(ErrorMessage="*")]
+        [IsDate(ErrorMessage="Invalid Date Format")]*/
         [Display(Name = "Birthday")]
         public DateTime DateOfBirth { get; set; }
         

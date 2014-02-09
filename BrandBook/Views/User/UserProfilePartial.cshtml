@@ -1,3 +1,95 @@
-﻿
+﻿@using BrandBookModel
 @model BrandBookModel.UserProfile
 
+<div class="UserProfileMain">
+    <div class="userProfileLeftPanel">
+
+    </div>
+    <div class="userStatusWrapper">
+        @foreach(StatusUpdateModel status in Model.statusUpdates)
+        {
+            if (status.StatusType == "T")
+            {
+                <div class="userStatus">
+                    <div class="statusProfPic">
+                        <img src="@Url.Content(status.ProPicUrl)" data-imgid="@status.PicID"/>
+                    </div>
+                    <div class="statusByUserName">
+                        <a href="#">@status.FullName</a>
+                    </div>
+                    <div class="statusText">
+                        @status.StatusContent
+                    </div>
+                </div>
+                 
+            }
+            else if (status.StatusType == "I")
+            {
+                 <div class="userStatus">
+                    <div class="statusProfPic">
+                        <img src="@Url.Content(status.ProPicUrl)" data-imgid="@status.PicID"/>
+                    </div>
+                    <div class="statusByUserName">
+                        <a href="#">@status.FullName</a>
+                    </div>
+                    <div class="statusContent">
+                        <span>@status.fileDesc</span>
+                        <img src="@Url.Content(status.StatusContent)" data-fileid="@status.fileID" />
+                    </div>
+                    <div class="statusLikeCommentWrapper">
+                        @if (status.Likes.Count > 0)
+                    {
+                        if (status.Likes.Where(l => l.LikedByUserID == Model.user.UserDetailsID).Count() > 0)
+                        {
+                            <div class="likeStatus">
+                                @{
+                            if (status.Likes.Count == 1)
+                                    {
+                                        <a class="likemsg" href="#">You </a><span>like this</span>
+                                    }
+                                    else
+                                    {
+                                        <a class="likemsg" href="#">status.Likes.Count people </a><span>like this</span>
+                                    }
+                                 }
+                            </div>
+                        }
+                        else
+                        {
+                          <div class="likeStatus">
+                                @{
+                            if (status.Likes.Count == 1)
+                                    {
+                                        <a class="likemsg" href="#">status.Likes[0].LikedByUserFullName </a><span>likes this</span>
+                                    }
+                                    else
+                                    {
+                                        <a class="likemsg" href="#">status.Likes.Count people </a><span>like this</span>                                                                       
+                                    }
+                                                                                                       
+                                                                   
+                                }
+                          </div>  
+                        }
+                    }
+                        @foreach (CommentModel ModelComment in status.Comments)
+                            {
+                                <div class="StatusComment" data-statusid="@status.StatusID" data-commentid="@ModelComment.CommentID" data-commentbyuserid="@ModelComment.CommentedByUserID">
+                                    <img id="@ModelComment.CommentedByUserProPicID" src="@Url.Content(@ModelComment.CommentedByUserProPicUrl)" class="commentUserImage"/>
+                                    <a href="#">@ModelComment.CommentedByUserFullName</a>
+                                    <span class="CommentContent">@ModelComment.CommentContent</span>
+                                    <div class="likeOnCommentWraper">
+                                        <a href="#">Like</a>
+                                            @if (@ModelComment.Likes.Count > 0)
+                                            {
+                                                <img src='@Url.Content("~/Content/themes/base/images/like.jpg")'> @ModelComment.Likes.Count 
+                                            }
+                                     </div>
+                                </div>
+                            }
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

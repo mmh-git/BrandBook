@@ -10,6 +10,13 @@
     //    options.messages["IsDate"] = options.messages;
     //})
 
+
+    
+
+    $('#UserName').on('keyup',function(){
+        $('#Email').val($('#UserName').val() + '@bpl.net');
+    })
+
     $("#btnRegister").on('click', function () {
         var regUrl = baseUrl + "Account/SignUp";
         var serialiedData = $("#divSignUp :input").serialize();

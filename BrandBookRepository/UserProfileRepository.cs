@@ -19,14 +19,49 @@ namespace BrandBookRepository
             _dbUserProfile = new DBUserProfile();
         }
 
+        public BrandModel GetBrandList(int userDetailsId)
+        {
+            BrandModel _brandModel = new BrandModel();
+            
+            DataTable dt = _dbUserProfile.getBrandList(userDetailsId);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                _brandModel = new BrandModel();
+                _brandModel.BrandId = Convert.ToInt16(dr["BrandID"]);
+                _brandModel.BrandName = dr["BrandName"].ToString();
+                _brandModel.BrandDesc = dr["BrandDesc"].ToString();
+               
+            }
+            return _brandModel;
+        }
+        public ProjectModel GetProjectList(int userDetailsId)
+        {
+            ProjectModel _brandModel = new ProjectModel();
+            
+            DataTable dt = _dbUserProfile.getBrandList(userDetailsId);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                _brandModel = new ProjectModel();
+                _brandModel.ProjectID = Convert.ToInt16(dr["ProjectID"]);
+                _brandModel.ProjectName = dr["ProjectName"].ToString();
+                _brandModel.ProjectDesc = dr["ProjectDesc"].ToString();
+                
+            }
+            return _brandModel;
+        }
+
         public UserProfile GetUserProfile(UserModel userModel)
         {
             UserProfile userProfile = new UserProfile();
             StatusUpdateModel _statusUpdateModel;
             CommentModel _commentModel;
             LikeModel _likeModel;
-            BrandModel brandModel;
-            ProjectModel projectModel;
+            BrandModel brandModel = new BrandModel();
+            ProjectModel projectModel = new ProjectModel(); ;
+            UserModel _userModel;
+            List<UserModel> users = new List<UserModel>();
             List<BrandModel> brands = new List<BrandModel>();
             List<ProjectModel> projects = new List<ProjectModel>();
             List<StatusUpdateModel> statusList = new List<StatusUpdateModel>();
@@ -36,25 +71,25 @@ namespace BrandBookRepository
             {
                 DataSet dsUserProfile = _dbUserProfile.GetUserProfile(userModel);
 
-                DataTable dtUserDetails = dsUserProfile.Tables["ud"];
+                DataTable dtUserDetails = dsUserProfile.Tables[0];
 
                 foreach (DataRow dr in dtUserDetails.Rows)
                 {
                     userModel.FirstName = dr["FirstName"].ToString();
                     userModel.LastName = dr["LastName"].ToString();
                     userModel.Address = dr["Address"].ToString();
-                    userModel.City = dr["City"].ToString();
-                    userModel.Country = dr["Country"].ToString();
-                    userModel.DateOfBirth = Convert.ToDateTime("DOB");
+                    userModel.UserName = dr["UserName"].ToString();
+                    userModel.Extention = dr["Extension"].ToString();
                     userModel.Gender = dr["Gender"].ToString();
                     userModel.ProfilePicID = dr["proPicId"].ToString();
                     userModel.ProfilePicUrl = dr["ImageUrl"].ToString();
                     userModel.Desination = dr["Designation"].ToString();
-                    userModel.Phone = dr["Phone"].ToString();
+                    userModel.Mobile = dr["Mobile"].ToString();
+                    userModel.Email = dr["Email"].ToString();
  
                 }
                 userProfile.user = userModel;
-                DataTable dtUsrStatus = dsUserProfile.Tables["userStatus"];
+                DataTable dtUsrStatus = dsUserProfile.Tables[1];
                 foreach (DataRow dr in dtUsrStatus.Rows)
                 {
                     _statusUpdateModel = new StatusUpdateModel()
@@ -71,7 +106,7 @@ namespace BrandBookRepository
                     };
                     statusList.Add(_statusUpdateModel);
                 }
-                DataTable dtComment = dsUserProfile.Tables["cmt"];
+                DataTable dtComment = dsUserProfile.Tables[2];
                 foreach (DataRow dr in dtComment.Rows)
                 {
                     _commentModel = new CommentModel() 
@@ -88,7 +123,7 @@ namespace BrandBookRepository
                     };
                     commentList.Add(_commentModel);
                 }
-                DataTable dtLikes = dsUserProfile.Tables["L"];
+                DataTable dtLikes = dsUserProfile.Tables[3];
                 foreach (DataRow dr in dtLikes.Rows)
                 {
                     _likeModel = new LikeModel() {
@@ -114,7 +149,7 @@ namespace BrandBookRepository
                     st.Likes = likesOnStatus.Where(l => l.LikedContentID == st.StatusID).ToList();
                 }
                 userProfile.statusUpdates = statusList;
-                DataTable dtBrands = dsUserProfile.Tables["ub"];
+                DataTable dtBrands = dsUserProfile.Tables[4];
                 foreach (DataRow dr in dtBrands.Rows)
                 {
                     brandModel = new BrandModel() {
@@ -122,9 +157,9 @@ namespace BrandBookRepository
                         BrandName = dr["BrandName"].ToString(),
                         BrandDesc = dr["BrandDesc"].ToString()
                     };
-                    brands.Add(brandModel);
+                    
                 }
-                DataTable dtProjects = dsUserProfile.Tables["up"];
+                DataTable dtProjects = dsUserProfile.Tables[5];
                 foreach (DataRow dr in dtProjects.Rows)
                 {
                     projectModel = new ProjectModel() { 
@@ -132,10 +167,19 @@ namespace BrandBookRepository
                     ProjectName=dr["ProjectName"].ToString(),
                     ProjectDesc=dr["ProjectDesc"].ToString()
                     };
-                    projects.Add(projectModel);
+                    
                 }
-                userProfile.brands = brands;
-                userProfile.projects = projects;
+                userProfile.brands = brandModel;
+                userProfile.projects = projectModel;
+                DataTable dtUsers = dsUserProfile.Tables[6];
+                foreach (DataRow dr in dtUsers.Rows)
+                {
+                    _userModel = new UserModel();
+                    _userModel.UserDetailsID = Convert.ToInt16(dr["UserDetailsID"]);
+                    _userModel.FirstName = dr["name"].ToString();
+                    users.Add(_userModel);
+                }
+                userProfile.users = users;
             }
             catch (Exception exception)
             {
@@ -162,6 +206,17 @@ namespace BrandBookRepository
         //        return statusUpdateModel;
            
         //}
-       
+        public int EditUserProfile(UserModel userModel)
+        {
+          return  _dbUserProfile.EditUserProfile(userModel);
+        }
+        public int insertUserBrand(BrandModel brandModel, int userDetailsId)
+        {
+            return _dbUserProfile.insertUserBrand(brandModel,userDetailsId);
+        }
+        public int insertUserProject(ProjectModel brandModel, int userDetailsId)
+        {
+            return _dbUserProfile.insertUserProject(brandModel, userDetailsId);
+        }
     }
 }
