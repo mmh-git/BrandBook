@@ -1,0 +1,19 @@
+﻿@using BrandBookModel;
+@model List<BrandBookModel.UserModel>
+@{
+    Layout = null;
+    }
+
+<div class="LikedUsersWrapper">
+@foreach (UserModel user in Model)
+{
+    <div class="LikedUser">
+        <div class="statusProfPic">
+            <Img class="statusProfilePic" src='@Url.Content(user.ProfilePicUrl)'/>
+        </div>
+        <div class="statusByUserName">
+            <a href="#">@user.FirstName @user.LastName</a>
+        </div>
+    </div>    
+}
+</div>
