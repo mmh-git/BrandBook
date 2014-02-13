@@ -48,5 +48,12 @@ namespace BrandBook.Controllers
             //return Json(likeModel, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetLikedUserCollection(int LikedContentId)
+        {
+            BrandBookFacadeBiz facade = new BrandBookFacadeBiz();
+
+            return View("GetLikedUserPartial", facade.GetLikedUserCollection(LikedContentId));
+        }
+
     }
 }

@@ -1,11 +1,31 @@
 ﻿var loggedIn = false;
 
-$(document).ready(function () {
-    
-    $('#Content').on('click', '.popupImg', function () {
-        $('.popupimagecontainer').attr('src', $(this).attr('src'));
-        $('#imageModal').modal('show');
-    })
+$(document).ready(function () {   
+        $('#Content').on('click', '.likemsg', function (event) {
+            event.preventDefault();
+            var context = $(this);
+            $('#LikedUserModal').modal('show');
+            showLoader("LikedUserModalContent");
+            $.ajax({
+                url: baseUrl + "Like/GetLikedUserCollection",
+                type: 'POST',
+                async: false,
+                data: {
+                    'LikedContentId': context.data('likedcontentid')
+                },
+                success: function (data) {
+                    $('.LikedUserModalBody').html(data);
+                },
+                complete: function () {
+                    hideLoader("LikedUserModalContent");
+                }
+            });
+        });
+   
+        $('#Content').on('click', '.popupImg', function () {
+            $('.popupimagecontainer').attr('src', $(this).attr('src'));
+            $('#imageModal').modal('show');
+        });
 
     $(".aProfile").on('click', function (event) {
         event.preventDefault();

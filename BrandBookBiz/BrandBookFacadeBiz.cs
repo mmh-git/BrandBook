@@ -50,6 +50,10 @@ namespace BrandBookBiz
         {
             return _likeRepository.SaveLike(likeModel);
         }
+        public List<UserModel> GetLikedUserCollection(int LikedContentId)
+        {
+            return _likeRepository.GetLikedUserCollection(LikedContentId);
+        }
         #endregion
         #region User Method
 
@@ -61,6 +65,7 @@ namespace BrandBookBiz
         {
             return _userRepository.SaveUserDetails(userModel);
         }
+        
         #endregion
         #region Image Method
         public ImageModel SaveImage(ImageModel imageModel)

@@ -35,5 +35,22 @@ namespace BrandBookRepository
             }
             return likes;
         }
+
+        public List<UserModel> GetLikedUserCollection(int LikedContentId)
+        {
+            DataTable dt = _dbLike.GetLikedUserCollection(LikedContentId);
+            List<UserModel> likedUsers = new List<UserModel>();
+            UserModel user;
+            foreach (DataRow dr in dt.Rows)
+            {
+                user = new UserModel();
+                user.FirstName=dr["FirstName"].ToString();
+                user.LastName=dr["LastName"].ToString();
+                user.ProfilePicID = dr["ImageID"].ToString();
+                user.ProfilePicUrl = dr["ImageUrl"].ToString();
+                likedUsers.Add(user);
+            }
+            return likedUsers;
+        }
     }
 }

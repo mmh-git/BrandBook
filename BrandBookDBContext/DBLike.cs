@@ -49,6 +49,20 @@ namespace BrandBookDBContext
             
             return dt;
         }
+
+        public DataTable GetLikedUserCollection(int LikedContentId)
+        {
+            _spName = "sp_getLikesListByContentId";
+
+            _spParameters = new SqlParameter[] 
+            {
+                new SqlParameter("@LikedContentId",LikedContentId)
+                
+            };
+            DataTable dt = ExecuteDataTable(_spName, _spParameters);
+
+            return dt;
+        }
         #endregion
     }
 }
